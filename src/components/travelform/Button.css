@@ -2,7 +2,10 @@
   h1 {
     height: 5px;
   }
+  h {
   
+    color: #FFF;
+  }
   h1 span {
     position: relative;
     top: 0.01px;
