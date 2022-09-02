@@ -1,9 +1,16 @@
-import "./App.css";
-import React from "react";
-import Router from "../src/router/Router";
+import logo from './logo.svg';
+import './App.css';
+import Form from "./components/travelform/Form"
 
 function App() {
-    return <Router />;
+  return (
+    <div className="App">
+     
+       <Form/>
+       
+    
+    </div>
+  );
 }
 
 export default App;

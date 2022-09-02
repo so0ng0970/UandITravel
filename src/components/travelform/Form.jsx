@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from "styled-components"
 import "bootstrap/dist/css/bootstrap.css";
 import 'bulma/css/bulma.min.css';
-import './button.css';
+import './Button.css';
 const Form = () => {
 
 
