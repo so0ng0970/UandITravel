@@ -15,11 +15,15 @@ const Form = () => {
         
       <>
       <div>
+
  <Card className="card">
         <Card01 className="card-body">
-     
-
-     
+    
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        
       <div  className="file has-name is-fullwidth">
         <label className="file-label">
           <input className="file-input" type="file" name="resume"/>
@@ -38,33 +42,53 @@ const Form = () => {
         </div >
         <br/>
           
-            <label className="label"></label>
-            <div className="control has-icons-left">
-          <div className="select">
-            <select placeholder="City">
-              <option selected>City</option>
-              <li>dmd</li>
-              <option>응?</option>
-          
-            </select>
-          </div>
-          <div className="icon is-small is-left">
-            <i className="fas fa-globe"></i>
-          </div>
-        </div>
-
-        
           <Card02  className="field">
-            <label className="label">작성자</label>
+          
             <div className="control">
-              <Input className="input" type="text" placeholder="e.g Alex Smith"/>
+ <div class="field is-horizontal">
+
+  <div class="field-body">
+    <div class="field">
+        <label className="label">작성자</label>
+      <Input className="input" type="text" placeholder="✎"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+ 
+    </div>
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+      <label className="label">도시</label>
+          <Select name="fruits" class="select">
+                  <Option disabled selected>ᴄɪᴛʏ</Option >
+                  <Option  value="apple">apple</Option >
+                  <Option  value="orange">orange</Option >
+                  <Option  value="grape">grape</Option >
+                  <Option  value="melon">melon</Option >
+
+                </Select>
+
+
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+              
+            
+        
             </div>
           </Card02 >
           
           <Card02 className="field">
             <label className="label">여행날짜</label>
             <div className="control">
-              <Input className="input" type="email" placeholder="e.g. alexsmith@gmail.com"/>
+              <Input className="input" type="email" placeholder="✎"/>
             </div>
 
             
@@ -73,7 +97,7 @@ const Form = () => {
           <Card02  className="field">
             <label className="label">MBTI</label>
             <div className="control">
-              <Input className="input" type="email" placeholder="e.g. alexsmith@gmail.com"/>
+              <Input className="input" type="email" placeholder="✎"/>
             </div>
           
             
@@ -82,7 +106,7 @@ const Form = () => {
 
           <Card02 className="field">
             <label className="label">Email</label>
-            < Textarea className="textarea" placeholder="e.g. Hello world"></ Textarea>
+            < Textarea className="textarea" placeholder="✎"></ Textarea>
 
           </Card02 >
           
@@ -90,7 +114,7 @@ const Form = () => {
           <Buttonu  className="field">
             <br/>
             <br/>
-            <br/>
+          
           <Button className="button"><h >작성완료</h>&nbsp;&nbsp;&nbsp;   
                       <h1>
                     
@@ -129,7 +153,11 @@ const Input = styled.input`
 const Textarea = styled.textarea `
  
   background-color: #e8feff96;
+  
 `;
+
+
+
 const Button = styled.button `
    
   background-color: #0165fc68;
@@ -139,7 +167,7 @@ background-size: cover;
   position: absolute;
   background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
   overflow: hidden;
- margin: 50px 250px;
+ margin: 50px 180px;
   position:
   relative;
  
@@ -163,5 +191,26 @@ const Buttonu= styled.div`
 height: 100px;
 margin: 20px
 `;
+
+/* IE */
+
+
+const Select= styled.select`
+width: 150px;
+  height: 40px;
+  background: #e8feff96;
+  padding: 5px 30px 5px 10px;
+  border-radius: 4px;
+  outline: 0 none;
+  border-color: #8d8b8b61;
+`;
+const Option= styled.option`
+width: 150px;
+background: #e8feff1e;
+ 
+  padding: 3px 0;
+`;
+
+
 
 export default Form;

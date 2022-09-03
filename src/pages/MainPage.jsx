@@ -1,23 +1,42 @@
 import React from "react";
-import Header from "../components/header";
+
 import List from "../components/travellist/List";
-import TravelCard from "../components/travellist/TravelCard";
+
 import styled from "styled-components";
-import Layout from "../components/layout/Layout";
+import Header from "../components/header/Header"
+
+
+
 const MainPage = () => {
     return (
-       <Layout>
-        <MainContainer> 
-            <Header />
-            <List />
-            <TravelCard />
-        </MainContainer></Layout>
-    );
-};
-
+        <div className="App">
+        
+          <Background> 
+         <Header/>  
+         <Div>
+        <List/>
+         </Div></Background>
+        </div>
+      );
+    }
+    
+    const Background = styled.div`
+    overflow: auto;
+    height: 110vh;
+    background-size: cover;
+      background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif) ;;
+    
+    `;
+    
+    
+    const Div = styled.div`
+    overflow: auto;
+    height: 100vh;
+    margin: 10px 100px;
+    
+    background-color: #ffffffd0;
+    border-radius: 10px 
+    
+    `
+    
 export default MainPage;
-const Input = styled.input`
- 
-  background-color: #ffffffd0;
-`;
-const MainContainer = styled.div``;
