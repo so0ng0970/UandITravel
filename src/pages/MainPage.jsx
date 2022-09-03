@@ -16,5 +16,8 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
+const Input = styled.input`
+ 
+  background-color: #ffffffd0;
+`;
 const MainContainer = styled.div``;
