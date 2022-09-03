@@ -9,6 +9,7 @@ import TravelReviewPage from "../pages/TravelReviewPage";
 import {Route, Routes } from "react-router-dom";
 import Form from "../components/travelform/Form";
 import TravelFormPage from "../pages/TravelFormPage";
+import LoginPage from "../pages/LoginPage";
 
 function Router () {
     return (
@@ -16,6 +17,7 @@ function Router () {
             <Routes>
                 <Route path="/" element={<MainPage />} /> 
                  <Route path="/form" element={<TravelFormPage/>}></Route>
+                 <Route path="/form" element={<LoginPage/>}></Route>
                 <Route path="/detail" element={<TravelDetailPage />} />
                 <Route path="/edit" element={<TravelEditPage />} />
                
