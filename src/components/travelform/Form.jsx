@@ -14,8 +14,11 @@ const Form = () => {
     return (
         
       <>
-
-      <div className="file has-name is-fullwidth">
+      <div>
+ <Card className="card">
+        <Card01 className="card-body">
+     
+      <div  className="file has-name is-fullwidth">
         <label className="file-label">
           <input className="file-input" type="file" name="resume"/>
           <span className="file-cta">
@@ -30,7 +33,7 @@ const Form = () => {
               Screen Shot 2017-07-29 at 15.54.25.png
             </span>
           </label>
-        </div>
+        </div >
         <br/>
           
             <label className="label"></label>
@@ -47,40 +50,43 @@ const Form = () => {
             <i className="fas fa-globe"></i>
           </div>
         </div>
-          <div className="field">
+          <Card02  className="field">
             <label className="label">작성자</label>
             <div className="control">
               <Input className="input" type="text" placeholder="e.g Alex Smith"/>
             </div>
-          </div>
+          </Card02 >
           
-          <div className="field">
+          <Card02 className="field">
             <label className="label">여행날짜</label>
             <div className="control">
               <Input className="input" type="email" placeholder="e.g. alexsmith@gmail.com"/>
             </div>
 
             
-          </div>
+          </Card02 >
 
-          <div className="field">
+          <Card02  className="field">
             <label className="label">MBTI</label>
             <div className="control">
               <Input className="input" type="email" placeholder="e.g. alexsmith@gmail.com"/>
             </div>
           
             
-          </div>
+          </Card02 >
   
 
-          <div className="field">
+          <Card02 className="field">
             <label className="label">Email</label>
             < Textarea className="textarea" placeholder="e.g. Hello world"></ Textarea>
 
-          </div>
+          </Card02 >
           
 
-          <div className="field">
+          <Buttonu  className="field">
+            <br/>
+            <br/>
+            <br/>
           <Button className="button"><h >작성완료!</h>&nbsp;&nbsp;&nbsp;   
                       <h1>
                     
@@ -93,11 +99,13 @@ const Form = () => {
             <span>🚅</span>
 
           </h1></Button>
-              </div>
+
+              </Buttonu>
 
 
-            
-              
+              </Card01>
+      </Card>
+           </div>   
             
         </>
           );
@@ -114,11 +122,31 @@ const Textarea = styled.textarea `
   background-color: #DEE6EB;
 `;
 const Button = styled.button `
- 
+   
   background-color: #004E75;
+`;
+const Card = styled.div`
+background-size: cover;
+  position: absolute;
+  background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
+ 
+  width: 800px;
+  height: 1000px;
 `;
 
 
 
+const Card01 = styled.div`
+
+margin: auto
+`;
+const Card02 = styled.div`
+height: 120px;
+margin: 20px
+`;
+const Buttonu= styled.div`
+height: 100px;
+margin: 20px
+`;
 
 export default Form;

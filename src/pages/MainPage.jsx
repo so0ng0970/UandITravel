@@ -3,14 +3,15 @@ import Header from "../components/header";
 import List from "../components/travellist/List";
 import TravelCard from "../components/travellist/TravelCard";
 import styled from "styled-components";
-
+import Layout from "../components/layout/Layout";
 const MainPage = () => {
     return (
-        <MainContainer>
+       <Layout>
+        <MainContainer> 
             <Header />
             <List />
             <TravelCard />
-        </MainContainer>
+        </MainContainer></Layout>
     );
 };
 
