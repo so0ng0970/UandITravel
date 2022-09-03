@@ -167,7 +167,7 @@ background-size: cover;
   position: absolute;
   background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
   overflow: hidden;
- margin: 50px 180px;
+ margin: 50px 250px;
   position:
   relative;
  
