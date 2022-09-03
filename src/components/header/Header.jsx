@@ -3,7 +3,8 @@ import styled from "styled-components"
 const Header = () => {
     return (
 <Header01>
-  <h1>로고</h1>
+  <h1>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(페이지이름)</h1>
   <nav>
     <ul>
       <li>메뉴1</li>
@@ -18,8 +19,8 @@ const Header = () => {
 }
 
 const Header01 = styled.div `
-background: #004E75;
-color: white;
+
+color: #003dad;
 padding-left: 32px;
 padding-right: 32px;
 display: flex;

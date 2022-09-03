@@ -18,6 +18,8 @@ const Form = () => {
  <Card className="card">
         <Card01 className="card-body">
      
+
+     
       <div  className="file has-name is-fullwidth">
         <label className="file-label">
           <input className="file-input" type="file" name="resume"/>
@@ -50,6 +52,8 @@ const Form = () => {
             <i className="fas fa-globe"></i>
           </div>
         </div>
+
+        
           <Card02  className="field">
             <label className="label">작성자</label>
             <div className="control">
@@ -87,7 +91,7 @@ const Form = () => {
             <br/>
             <br/>
             <br/>
-          <Button className="button"><h >작성완료!</h>&nbsp;&nbsp;&nbsp;   
+          <Button className="button"><h >작성완료</h>&nbsp;&nbsp;&nbsp;   
                       <h1>
                     
                       <span>.</span>
@@ -105,33 +109,44 @@ const Form = () => {
 
               </Card01>
       </Card>
+
+      
            </div>   
             
+
+
         </>
           );
 
           
 };
 
+
 const Input = styled.input`
  
-  background-color: #DEE6EB;
+  background-color: #e8feff96;
 `;
 const Textarea = styled.textarea `
  
-  background-color: #DEE6EB;
+  background-color: #e8feff96;
 `;
 const Button = styled.button `
    
-  background-color: #004E75;
+  background-color: #0165fc68;
 `;
 const Card = styled.div`
 background-size: cover;
   position: absolute;
   background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
+  overflow: hidden;
+ margin: 50px 250px;
+  position:
+  relative;
  
-  width: 800px;
-  height: 1000px;
+
+content: center;
+ 
+   
 `;
 
 

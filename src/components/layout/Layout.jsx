@@ -8,7 +8,7 @@ const Layout = (props) => {
 
 const Div = styled.div`
 max-width: 120px;
-min-width: 80px;
+min-width: 800px;
 margin: 100px;
 `
 
