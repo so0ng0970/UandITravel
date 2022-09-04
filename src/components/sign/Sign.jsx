@@ -8,12 +8,12 @@ const Sign= () => {
         <>
         
         <div className="card"style={{height:"80vh"}}>
-       <Left class="left"style={{height:"90vh",width:"50%",float:"left"}}>
+       <Left class="left"style={{height:"82vh",width:"50%",float:"left"}}>
        
       </Left> 
-      <Right  class="right"style={{height:"90vh", width:"50%",float:"right"}}>
+      <Right  class="right"style={{height:"82vh", width:"50%",float:"right"}}>
         
-        <Input1   className='input1'>
+        <Input1   className='input1' style={{marginTop:'250px'}}>
         <label className="label"></label>
         <input class="input" type="email" placeholder="🙂ID"/>
       <br/>

@@ -29,8 +29,8 @@ background-size: cover;
 
 const Div = styled.div`
 overflow: auto;
-height: 90vh;
-margin: 80px 100px;
+height: 82vh;
+margin: 20px 100px ;
 
 background-color: #ffffffd0;
 border-radius: 10px 

@@ -5,14 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import 'bulma/css/bulma.min.css';
-import { BrowserRouter } from "react-router-dom";
+
 import Router from "./router/Router";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   
-        <BrowserRouter >
+    
             <App />
-        </BrowserRouter >
+
   
 );
 

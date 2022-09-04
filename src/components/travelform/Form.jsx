@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components"
 
-
 import './Button.css';
+import { Link } from 'react-router-dom';
 const Form = () => {
 
 
@@ -21,8 +21,7 @@ const Form = () => {
     
             <br/>
             <br/>
-            <br/>
-            <br/>
+           
         
       <div  className="file has-name is-fullwidth">
         <label className="file-label">
@@ -67,22 +66,17 @@ const Form = () => {
                   <Option  value="melon">melon</Option >
 
                 </Select>
-
-
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
         <span class="icon is-small is-right">
           <i class="fas fa-check"></i>
         </span>
-      </p>
-    </div>
-  </div>
-</div>
-              
-            
-        
-            </div>
+            </p>
+          </div>
+        </div>
+        </div>
+           </div>
           </Card02 >
           
           <Card02 className="field">
@@ -99,51 +93,34 @@ const Form = () => {
             <div className="control">
               <Input className="input" type="email" placeholder="✎"/>
             </div>
-          
-            
           </Card02 >
   
 
           <Card02 className="field">
             <label className="label">Email</label>
             < Textarea className="textarea" placeholder="✎"></ Textarea>
-
-          </Card02 >
+        </Card02 >
           
-
-          <Buttonu  className="field">
+           <Buttonu  className="field">
             <br/>
             <br/>
             <br/>
+         
+         
+ 
+            <Link  to={`/`}>
           <Button className="button"><h >작성완료</h>&nbsp;&nbsp;&nbsp;   
-                      <h1>
-                    
-                      <span>.</span>
-              &nbsp;
-              <span>.</span>
-              &nbsp;
-              <span>.</span>
-
-            <span>🚅</span>
-
+          <h1><span>.</span>&nbsp; <span>.</span>&nbsp;<span>.</span>
+          <span>🚅</span>
           </h1></Button>
+          </Link>
+          </Buttonu>
 
-              </Buttonu>
-
-
-              </Card01>
-      </Card>
-
-      
-           </div>   
-            
-
-
-        </>
-          );
-
-          
-};
+           </Card01>
+            </Card>
+            </div>   
+            </>
+            );};
 
 
 const Input = styled.input`
@@ -167,8 +144,10 @@ background-size: cover;
   position: absolute;
   background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
   overflow: hidden;
- margin: 50px 250px;
-  position:
+
+ margin: 28px 150px ;
+
+ position:
   relative;
  
 
@@ -181,15 +160,15 @@ content: center;
 
 const Card01 = styled.div`
 
-margin: auto
+margin:20px
 `;
 const Card02 = styled.div`
-height: 120px;
+height: 95px;
 margin: 20px
 `;
 const Buttonu= styled.div`
 height: 100px;
-margin: 20px
+margin: 30px
 `;
 
 /* IE */

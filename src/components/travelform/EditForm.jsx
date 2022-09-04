@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-
+import { Link } from "react-router-dom";
 const EditForm = () => {
 
 
@@ -12,8 +12,7 @@ const EditForm = () => {
    <Card className="card">
           <Card01 className="card-body">
       
-              <br/>
-              <br/>
+             
               <br/>
               <br/>
           
@@ -108,35 +107,25 @@ const EditForm = () => {
               <br/>
               <br/>
               <br/>
+              <Link  to={`/detail`}>
             <Button className="button"><h >수정완료</h>&nbsp;&nbsp;&nbsp;   
-                        <h1>
-                      
-                        <span>.</span>
-                &nbsp;
-                <span>.</span>
-                &nbsp;
-                <span>.</span>
+          <h1>
+            <span>.</span>&nbsp;
+            <span>.</span>&nbsp;
+             <span>.</span>
+           <span>🚅</span>
+          </h1>
+          </Button>
+          </Link>
+
+         </Buttonu>
   
-              <span>🚅</span>
-  
-            </h1></Button>
-  
-                </Buttonu>
-  
-  
-                </Card01>
+         </Card01>
         </Card>
-  
-        
-             </div>   
-              
-  
-  
-          </>
-            );
-  
-            
-  };
+       </div>   
+        </>
+      );
+     };
   
   
   const Input = styled.input`
@@ -155,34 +144,31 @@ const EditForm = () => {
      
     background-color: #0165fc68;
   `;
+
   const Card = styled.div`
   background-size: cover;
     position: absolute;
     background-image:url(https://velog.velcdn.com/images/soonger3306/post/41dbb138-607a-4793-8a17-f064330754c6/image.gif);
     overflow: hidden;
-   margin: 50px 250px;
+    margin: 28px 150px ; 
     position:
     relative;
-   
-  
   content: center;
-   
-     
   `;
   
   
   
   const Card01 = styled.div`
   
-  margin: auto
+  margin: 20px;
   `;
   const Card02 = styled.div`
-  height: 120px;
-  margin: 20px
+  height: 95px;
+   margin: 20px
   `;
   const Buttonu= styled.div`
   height: 100px;
-  margin: 20px
+  margin: 30px
   `;
   
   /* IE */

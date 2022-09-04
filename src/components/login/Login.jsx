@@ -1,18 +1,18 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 const Login = () => {
     return (
 
         <>
-           <div className="card"style={{height:"80vh"}}>
-      <Left01 class="left"style={{ height:"90vh",width:"50%",float:"left"}}>
+           <div className="card"style={{height:"82vh"}}>
+      <Left01 class="left"style={{ height:"82vh",width:"50%",float:"left"}}>
        
       </Left01>
-      <Right01 class="right"style={{height:"90vh", width:"50%",float:"right"}}>
+      <Right01 class="right"style={{height:"82vh", width:"50%",float:"right"}}>
         
-        <Input2 className='input1'>
+        <Input2 className='input1' style={{marginTop:'300px'}}>
         <label className="label"></label>
         <input class="input" type="email" placeholder="🙂ID"/>
       <br/>
@@ -22,8 +22,13 @@ const Login = () => {
      </input>
       <br/>
       <br/>
+     
       <button class="button is-medium is-fullwidth">ʟᴏɢɪɴ</button>
-       <A className="a" href="url">회원가입</A>
+       <div>
+       <Link  to={`/sign`}>
+       <a className="a" href="url"style={{height:"82vh",float:"right"}}> 회원가입</a>
+        </Link>
+        </div>
        </Input2>
    
       </Right01>
@@ -37,11 +42,6 @@ const Login = () => {
         
     );
 };
-
-const A = styled.a`
-  margin-left: 49vh;
-
-`;
 
 const Left01= styled.div`
   float: left;
