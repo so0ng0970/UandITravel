@@ -40,64 +40,85 @@ const Form = () => {
           </label>
         </div >
         <br/>
-          
-          <Card02  className="field">
-          
-            <div className="control">
- <div class="field is-horizontal">
 
-  <div class="field-body">
-    <div class="field">
-        <label className="label">작성자</label>
-      <Input className="input" type="text" placeholder="✎"/>
-        <span class="icon is-small is-left">
-          <i class="fas fa-user"></i>
-        </span>
- 
-    </div>
-    <div class="field">
-      <p class="control is-expanded has-icons-left has-icons-right">
-      <label className="label">도시</label>
-          <Select name="fruits" class="select">
-                  <Option disabled selected>ᴄɪᴛʏ</Option >
-                  <Option  value="apple">apple</Option >
-                  <Option  value="orange">orange</Option >
-                  <Option  value="grape">grape</Option >
-                  <Option  value="melon">melon</Option >
-
-                </Select>
-        <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-          <i class="fas fa-check"></i>
-        </span>
-            </p>
-          </div>
-        </div>
-        </div>
-           </div>
-          </Card02 >
-          
-          <Card02 className="field">
-            <label className="label">여행날짜</label>
+     
+        <Card02 className="field">
+            <label className="label">글제목</label>
             <div className="control">
               <Input className="input" type="email" placeholder="✎"/>
             </div>
+           </Card02 >
 
-            
-          </Card02 >
+       
+        <Card02  className="field">
+          <div className="control">
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                  <label className="label">모집인원수</label>
+                <Input className="input" type="text" placeholder="✎"/>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+          
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                <label className="label">도시</label>
+                    <Select name="fruits" class="select">
+                            <Option disabled selected>ᴄɪᴛʏ</Option >
+                            <Option  value="apple">apple</Option >
+                            <Option  value="orange">orange</Option >
+                            <Option  value="grape">grape</Option >
+                            <Option  value="melon">melon</Option >
 
-          <Card02  className="field">
-            <label className="label">MBTI</label>
-            <div className="control">
-              <Input className="input" type="email" placeholder="✎"/>
-            </div>
-          </Card02 >
-  
+                          </Select>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                      </p>
+                    </div>
+                  </div>
+                  </div>
+                    </div>
+                    </Card02 >
+          
+         
+        <Card02  className="field">
+          <div className="control">
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                  <label className="label">여행 시작 날짜</label>
+                <Input className="input" type="text" placeholder="✎"/>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+          
+              </div>
+              
+              <div class="field">
+           <label className="label">여행 종료 날짜</label>
+                <Input className="input" type="text" placeholder="✎"/>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                      
+                    </div>
+                  </div>
+                  </div>
+                    </div>
+                    </Card02 >
+
 
           <Card02 className="field">
-            <label className="label">Email</label>
+            <label className="label">내용</label>
             < Textarea className="textarea" placeholder="✎"></ Textarea>
         </Card02 >
           
