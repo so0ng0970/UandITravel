@@ -1,21 +1,23 @@
 import React from 'react';
 import styled from "styled-components";
 import Header from "../components/header/Header"
-import Login from "../components/login/Login"
-const LoginPage = () => {
+import Sign from '../components/sign/Sign'
+const SignPage = () => {
     return (
-   
-             <Background> 
+        <div>
+      
+      <Background> 
        <Header/>
-          <Div>
-          <Login/>   
+         <Div>
+          <Sign></Sign> 
           </Div>
           </Background> 
       
-     
+        </div>
+            
+      
     );
 };
-
 const Background = styled.div`
 overflow: auto;
 height: 100vh;
@@ -35,5 +37,4 @@ border-radius: 10px
 
 `
 
-
-export default LoginPage;
+export default SignPage;
