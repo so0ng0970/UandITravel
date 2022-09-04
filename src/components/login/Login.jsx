@@ -7,23 +7,23 @@ const Login = () => {
 
         <>
            <div className="card"style={{height:"82vh"}}>
-      <Left01 class="left"style={{ height:"82vh",width:"50%",float:"left"}}>
+      <Left01 className="left"style={{ height:"82vh",width:"50%",float:"left"}}>
        
       </Left01>
-      <Right01 class="right"style={{height:"82vh", width:"50%",float:"right"}}>
+      <Right01 className="right"style={{height:"82vh", width:"50%",float:"right"}}>
         
         <Input2 className='input1' style={{marginTop:'300px'}}>
         <label className="label"></label>
-        <input class="input" type="email" placeholder="🙂ID"/>
+        <input className="input" type="email" placeholder="🙂ID"/>
       <br/>
       <br/>
       
-      <input class="input" type="password" placeholder="🔒Password">
+      <input className="input" type="password" placeholder="🔒Password">
      </input>
       <br/>
       <br/>
      
-      <button class="button is-medium is-fullwidth">ʟᴏɢɪɴ</button>
+      <button className="button is-medium is-fullwidth">ʟᴏɢɪɴ</button>
        <div>
        <Link  to={`/sign`}>
        <a className="a" href="url"style={{height:"82vh",float:"right"}}> 회원가입</a>

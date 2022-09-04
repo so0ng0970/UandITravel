@@ -1,25 +1,58 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import styled from "styled-components";
-
+import {getComment} from "../../redux/module/TravelCommentSlice"
+import {useDispatch} from "react-redux"
+import axios from "axios"
 function CommentForm() {
+    const [comment, setComment] = useState({
+    content:"",
+   })
+
+
+
+   //POST
+   const onSubmitHandler = (comment) => {
+    axios.post("http://localhost:3001/comment", comment);
+    
+  };
+
+
+
     return (
+        <form
+        onSubmit={(e) => {
+					// 👇 submit했을 때 브라우저의 새로고침을 방지합니다. 
+          e.preventDefault();
+          onSubmitHandler(comment);
+        }}
+      >
         <div>
-            <CommentL  class="media">
-                <div class="media-content">
-                    <div class="field">
-                        <p class="control">
+            
+            <CommentL  className="media">
+                <div className="media-content">
+                    <div className="field">
+                        <p className="control">
                             <textarea
-                                class="textarea"
+                              type="text"
+                                onChange={(ev) => {
+                                    const { value } = ev.target;yar
+                                  setComment({
+                                    ...comment,
+                                    content:value,
+                                  });
+                                }}
+                             
+                                className="textarea"
                                 placeholder="Add a comment..."
                             ></textarea>
                         </p>
                     </div>
-                    <nav class="level">
-                        <div class="level-left">
-                            <div class="level-item">
+                    <nav className="level">
+                        <div className="level-left">
+                            <div className="level-item">
                                 <br/>
                                 <br/>
-                                <DetailPageBtn class="button is-info">
+                                <DetailPageBtn className="button is-info">
                                     Submit
                                 </DetailPageBtn>
                             </div>
@@ -28,6 +61,7 @@ function CommentForm() {
                 </div>
             </CommentL >
         </div>
+        </form>
     );
 }
 

@@ -37,10 +37,10 @@ const EditForm = () => {
             <Card02  className="field">
             
               <div className="control">
-   <div class="field is-horizontal">
+   <div className="field is-horizontal">
   
-    <div class="field-body">
-      <div class="field">
+    <div className="field-body">
+      <div className="field">
           <label className="label">작성자</label>
         <Input className="input" type="text" placeholder="✎"/>
           <span class="icon is-small is-left">
@@ -48,10 +48,10 @@ const EditForm = () => {
           </span>
    
       </div>
-      <div class="field">
-        <p class="control is-expanded has-icons-left has-icons-right">
+      <div className="field">
+        <p className="control is-expanded has-icons-left has-icons-right">
         <label className="label">도시</label>
-            <Select name="fruits" class="select">
+            <Select name="fruits" className="select">
                     <Option disabled selected>ᴄɪᴛʏ</Option >
                     <Option  value="apple">apple</Option >
                     <Option  value="orange">orange</Option >
@@ -61,11 +61,11 @@ const EditForm = () => {
                   </Select>
   
   
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+          <span className="icon is-small is-left">
+            <i className="fas fa-envelope"></i>
           </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
+          <span className="icon is-small is-right">
+            <i className="fas fa-check"></i>
           </span>
         </p>
       </div>

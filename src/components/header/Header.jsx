@@ -10,13 +10,13 @@ const Header = () => {
             <nav>
                 <ul>
                     <Link  to={`/`}>
-                    <button class="button is-ghost">ʜᴏᴍᴇ</button>
+                    <button className="button is-ghost">ʜᴏᴍᴇ</button>
                     </Link>
                     <Link  to={`/login`}>
-                    <button class="button is-ghost">ʟᴏɢɪɴ</button>
+                    <button className="button is-ghost">ʟᴏɢɪɴ</button>
                     </Link>
                     <Link  to={`/form`}>
-                    <button class="button is-ghost" >
+                    <button className="button is-ghost" >
                      ᴡʀɪᴛᴇ
                     </button>
                     </Link>

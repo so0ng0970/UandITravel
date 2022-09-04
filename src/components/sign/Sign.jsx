@@ -8,29 +8,32 @@ const Sign= () => {
         <>
         
         <div className="card"style={{height:"80vh"}}>
-       <Left class="left"style={{height:"82vh",width:"50%",float:"left"}}>
+       <Left className="left"style={{height:"82vh",width:"50%",float:"left"}}>
        
       </Left> 
-      <Right  class="right"style={{height:"82vh", width:"50%",float:"right"}}>
+      <Right  className="right"style={{height:"82vh", width:"50%",float:"right"}}>
         
         <Input1   className='input1' style={{marginTop:'250px'}}>
         <label className="label"></label>
-        <input class="input" type="email" placeholder="🙂ID"/>
+        <input className="input" type="email" placeholder="🙂ID"/>
       <br/>
       <br/>
-      <input class="input" type="email" placeholder="📨Email"/>
+      <input className="input" type="email" placeholder="😙NICKNAME"/>
+      <br/>
+      <br/>
+      <input className="input" type="email" placeholder="😎MBTI"/>
       <br/>
       <br/>
 
-      <input class="input" type="password" placeholder="🔒Password">
+      <input className="input" type="password" placeholder="🔒Password">
      </input>
       <br/>
       <br/>
-      <input class="input" type="password" placeholder="🔒Password check">
+      <input className="input" type="password" placeholder="🔒Password check">
      </input>
      <br/>
       <br/>
-      <button class="button is-medium is-fullwidth">ᴀᴄᴄᴏᴜɴᴛ</button>
+      <button className="button is-medium is-fullwidth">ᴀᴄᴄᴏᴜɴᴛ</button>
   
        </Input1 >
    

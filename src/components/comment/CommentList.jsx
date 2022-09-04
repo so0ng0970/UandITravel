@@ -1,12 +1,23 @@
-import React from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
-
+import {getComment} from "../../redux/module/TravelCommentSlice"
+import {useDispatch,useSelector} from "react-redux"
 function CommentList() {
+
+
+    const dispatch = useDispatch();
+
+ useEffect(()=>{
+    dispatch(getComment());
+ },[dispatch])
+
+
+
     return (
         <div>
-            <CommentListContainer class="media">
-                <CommentListBox class="media-content">
-                    <div class="content">
+            <CommentListContainer className="media">
+                <CommentListBox className="media-content">
+                    <div className="content">
                         <p>
                             <strong>김정원</strong> <small>@gardenk</small>{" "}
                             <small>31m</small>
