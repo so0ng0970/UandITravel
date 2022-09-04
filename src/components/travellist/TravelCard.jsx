@@ -22,6 +22,7 @@ const TravelCard = () => {
                             <small>@johnsmith</small> <small>31m</small>
                             <div>
                                 <CardTiltle>제주도 같이가실 분 </CardTiltle>
+                                <br></br>
                                
                                 <CardContent>MBTI : ISFP</CardContent>
                                 <CardContent>지역이름 : 제주도</CardContent>
@@ -125,9 +126,10 @@ const CardImg = styled.img`
   
 `;
 
-const CardTiltle = styled.div`    
-    font-size: 20px;
 
+const CardTiltle = styled.h2`
+    margin: 5px;
+    font-size: 1rem;
 `;
 
 const CardContent = styled.p``;
