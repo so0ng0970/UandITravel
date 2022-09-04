@@ -35,7 +35,7 @@ function CommentForm() {
                             <textarea
                               type="text"
                                 onChange={(ev) => {
-                                    const { value } = ev.target;yar
+                                    const { value } = ev.target;
                                   setComment({
                                     ...comment,
                                     content:value,
