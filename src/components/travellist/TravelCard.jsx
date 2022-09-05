@@ -39,7 +39,7 @@ const TravelCard = ({posts}) => {
                         <ImgContainer class="image is-64x64">
                             <CardImg
                                 hover
-                                src="https://youimg1.tripcdn.com/target/100a0e0000006zype378A_C_640_320_R5_Q70.jpg_.webp?proc=source%2Ftrip"
+                                src="https://i.pinimg.com/564x/ae/b5/49/aeb549a5892e4d62e343380285c18619.jpg"
                             />
                         </ImgContainer>
                     </CardFigure>

@@ -3,6 +3,10 @@
     {
       "content": "ㅇㄹㄴㅇㄹ",
       "id": 1
+    },
+    {
+      "content": "ㅇㄹㄴㅇㄹ",
+      "id": 2
     }
   ],
   "posts": [
@@ -34,6 +38,55 @@
       "arrivalDate": "2022.04.06",
       "content": "갑시다",
       "city": "서울",
+      "img": ""
+    },
+    {
+      "id": "epXoeS0cvcXQ7HzXpsush",
+      "city": "CITY",
+      "img": ""
+    },
+    {
+      "id": "hgEl80A"
+    },
+    {
+      "id": "cTY0TQm1hrbm2CaigARJi",
+      "title": "dddd",
+      "personnel": "ddd",
+      "departureDate": "dd",
+      "arrivalDate": "ddd",
+      "content": "ddd",
+      "city": "강원",
+      "img": ""
+    },
+    {
+      "id": "JOfNjrv"
+    },
+    {
+      "id": "3BKKhYUbog7QBdiqAPHr0",
+      "city": "CITY",
+      "img": ""
+    },
+    {
+      "id": "-3Ew1Xw"
+    },
+    {
+      "id": "PKZux6--2LsygemqVNfR4",
+      "city": "CITY",
+      "img": ""
+    },
+    {
+      "id": "2J8H1vBJtLTajp6rEGxrY",
+      "city": "CITY",
+      "img": ""
+    },
+    {
+      "id": "-1J6nNZMMTHF92oQsPBXw",
+      "city": "CITY",
+      "img": ""
+    },
+    {
+      "id": "pDk4oEBFYRBhy2r7aW0zp",
+      "city": "CITY",
       "img": ""
     }
   ]

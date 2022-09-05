@@ -30,6 +30,7 @@ const Form = () => {
         "경상",
         "전라",
         "충청",
+        "제주",
     ];
     const [city, setCity] = useState("CITY");
 
@@ -44,10 +45,10 @@ const Form = () => {
     /** 이미지 파일 저장 **/
     const onChangeImg = async (e) => {
         e.preventDefault();
+        // setImg(e.target.files);
 
         if (e.target.files) {
             const uploadFile = e.target.files[0]; //여기에 fakepath있을것...
-            setImg(uploadFile);
             const formData = new FormData();
             formData.append("files", uploadFile); //key, value
             console.log(uploadFile);
@@ -78,7 +79,7 @@ const Form = () => {
             id: nanoid(),
             title,
             personnel,
-            // city,
+        
             departureDate,
             arrivalDate,
             content,
