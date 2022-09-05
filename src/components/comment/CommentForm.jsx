@@ -4,26 +4,31 @@ import {getComment} from "../../redux/module/TravelCommentSlice"
 import {useDispatch} from "react-redux"
 import axios from "axios"
 function CommentForm() {
+    const dispatch = useDispatch();
     const [comment, setComment] = useState({
     content:"",
    })
-
-
-
+   const [comments, setComments] = useState(null);
+   const fetchComments = async () => {
+    const { data } = await axios.get("http://localhost:3001/comment");
+    setComments(data);
+  };
    //POST
    const onSubmitHandler = (comment) => {
     axios.post("http://localhost:3001/comment", comment);
-    
-  };
+   
+     };
 
-
+     useEffect(() => {
+        fetchComments();
+        }, []);
+      
 
     return (
         <form
         onSubmit={(e) => {
-					// 👇 submit했을 때 브라우저의 새로고침을 방지합니다. 
-          e.preventDefault();
-          onSubmitHandler(comment);
+       
+	   onSubmitHandler(comment);
         }}
       >
         <div>

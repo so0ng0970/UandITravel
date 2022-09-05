@@ -1,0 +1,40 @@
+{
+  "comment": [
+    {
+      "content": "ㅇㄹㄴㅇㄹ",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": "r-z_hlzcnO-6RD9UTrRHd",
+      "title": "여행가요 ",
+      "personnel": "10",
+      "departureDate": "2023-02.01",
+      "arrivalDate": "02.23",
+      "content": "갑시다~~",
+      "city": "경기",
+      "img": ""
+    },
+    {
+      "id": "AlsIiAbUDobHRmqLoebcT",
+      "title": "여향 ",
+      "personnel": "2",
+      "departureDate": "2.1",
+      "arrivalDate": "2.3",
+      "content": "........................",
+      "city": "인천",
+      "img": ""
+    },
+    {
+      "id": "55034s__Mi_CbXkE938mz",
+      "title": "안녕하세여",
+      "personnel": "100",
+      "departureDate": "2022.04.05",
+      "arrivalDate": "2022.04.06",
+      "content": "갑시다",
+      "city": "서울",
+      "img": ""
+    }
+  ]
+}
