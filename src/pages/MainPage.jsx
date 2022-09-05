@@ -4,7 +4,7 @@ import List from "../components/travellist/List";
 
 import styled from "styled-components";
 import Header from "../components/header/Header"
-import TravelFormPage from "./TravelFormPage";
+
 import SignPage from "./SignPage";
 import LoginPage from "./LoginPage";
 import TravelDetailPage from "./TravelDetailPage";
