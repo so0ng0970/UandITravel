@@ -1,27 +1,25 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import "bulma/css/bulma.min.css";
 import { Link } from "react-router-dom";
-import {useDispatch,useSelector} from "react-redux"
-import {getTravelList} from "../../redux/module/TravelFormSlice"
-import axios from "axios"
-const TravelCard = ({posts}) => {
-
-
-    const {title,departureDate,arrivalDate,city,id,content,personnel} = posts
-    console.log(title,departureDate,arrivalDate,city,id)
+import { useDispatch, useSelector } from "react-redux";
+import { getTravelList } from "../../redux/module/TravelFormSlice";
+import axios from "axios";
+const TravelCard = ({ posts }) => {
+    const { title, departureDate, arrivalDate, city, id, content, personnel } =
+        posts;
+    console.log(title, departureDate, arrivalDate, city, id);
 
     const data = {
-    "id": id,
-    "title": title,
-    "content":content,
-    "departureDate": departureDate,
-    "arrivalDate": arrivalDate,
-    "personnel" :personnel,
-    "city": city,
-   
-    }
-   
+        id: id,
+        title: title,
+        content: content,
+        departureDate: departureDate,
+        arrivalDate: arrivalDate,
+        personnel: personnel,
+        city: city,
+    };
+
     // const dispatch = useDispatch();
     // const {posts} = useSelector ((state) =>state.posts)
     // console.log('하이',posts)
@@ -32,8 +30,7 @@ const TravelCard = ({posts}) => {
 
     return (
         <div>
-           
-            <Link to={`/detail`}>
+            <Link to={`/detail/${id}`}>
                 <Cardcontainer class="media">
                     <CardFigure class="media-center">
                         <ImgContainer class="image is-64x64">
@@ -49,20 +46,21 @@ const TravelCard = ({posts}) => {
                                 <strong>John Smith</strong>
                                 <small>@johnsmith</small> <small>31m</small>
                                 <div>
-                                <div key={posts.id}>
-                                    <CardTiltle>{title}</CardTiltle>
-                                    <br></br>
-                                    <CardContent>MBTI : ISFP</CardContent>
-                                 
-                                    <CardContent>{city},{personnel}명</CardContent>
-                                    <CardContent>
-                                        {departureDate}~{arrivalDate}
-                                    </CardContent>
-                               
+                                    <div key={posts.id}>
+                                        <CardTiltle>{title}</CardTiltle>
+                                        <br></br>
+                                        <CardContent>MBTI : ISFP</CardContent>
+
+                                        <CardContent>
+                                            {city},{personnel}명
+                                        </CardContent>
+                                        <CardContent>
+                                            {departureDate}~{arrivalDate}
+                                        </CardContent>
                                     </div>
                                 </div>
-                                <br />   
-                             {content}
+                                <br />
+                                {content}
                             </div>
                         </div>
                         <nav class="level is-mobile">
@@ -80,7 +78,6 @@ const TravelCard = ({posts}) => {
                     </div>
                 </Cardcontainer>
             </Link>
-          
         </div>
     );
 };

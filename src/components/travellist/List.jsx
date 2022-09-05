@@ -1,32 +1,28 @@
-
 import TravelCard from "./TravelCard";
 import styled from "styled-components";
-import {useDispatch,useSelector} from "react-redux"
-import {getTravelList} from "../../redux/module/TravelFormSlice"
-   import React,{useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTravelList } from "../../redux/module/TravelFormSlice";
+import React, { useEffect } from "react";
 
 const List = () => {
+    const dispatch = useDispatch();
+    const { posts } = useSelector((state) => state.posts);
+    console.log("하이", posts);
 
-const dispatch = useDispatch();
-const {posts} = useSelector ((state) =>state.posts)
-console.log('하이',posts)
-
-useEffect(() => {
-    dispatch(getTravelList());
-  }, []);
-
-
+    useEffect(() => {
+        dispatch(getTravelList());
+    }, []);
 
     return (
         <ListContainer>
             <GridContainer>
-            {posts.map((posts) => (
-                <TravelCard
-                posts={posts}
-                key={posts.id}
-                />
-                ))}
-              
+                {posts.map((posts) => {
+                    if (posts.content) {
+                        return <TravelCard posts={posts} key={posts.id} />;
+                    } else {
+                        return null;
+                    }
+                })}
             </GridContainer>
         </ListContainer>
     );
@@ -43,5 +39,5 @@ const GridContainer = styled.div`
     max-width: 1200px;
     gap: 50px;
     height: 100%;
-    margin:60px 60px 60px 125px   ;
+    margin: 60px 60px 60px 125px;
 `;

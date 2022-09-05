@@ -9,21 +9,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignPage from "../pages/SignPage";
 import LoginPage from "../pages/LoginPage";
 
-
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-             
-          <Route path="/" element={<MainPage />} />
-          <Route path="/detail" element={<TravelDetailPage />} />
-          <Route path="/edit" element={<TravelEditPage />} />  
-          <Route path="/form" element={<TravelFormPage />} />
-          <Route path="/list" element={<TravelListPage />} />
-          <Route path="/review" element={<TravelReviewPage />} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/sign" element={<SignPage />} />
-        </Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/detail/:id" element={<TravelDetailPage />} />
+                <Route path="/edit" element={<TravelEditPage />} />
+                <Route path="/form" element={<TravelFormPage />} />
+                <Route path="/list" element={<TravelListPage />} />
+                <Route path="/review" element={<TravelReviewPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/sign" element={<SignPage />} />
+            </Routes>
         </BrowserRouter>
     );
 };

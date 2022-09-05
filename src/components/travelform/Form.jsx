@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { __addTavelCard } from "../../redux/module/TravelFormSlice";
+import { __addTravelCard } from "../../redux/module/TravelFormSlice";
 import { nanoid } from "@reduxjs/toolkit";
 import "./Button.css";
 import { Link } from "react-router-dom";
@@ -46,12 +46,18 @@ const Form = () => {
     const onChangeImg = async (e) => {
         e.preventDefault();
         // setImg(e.target.files);
-
+        const reader = new FileReader();
+        const file = e.target.files[0];
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {};
         if (e.target.files) {
             const uploadFile = e.target.files[0]; //여기에 fakepath있을것...
-            const formData = new FormData();
+            const formData = new FormData(); //formData
             formData.append("files", uploadFile); //key, value
-            console.log(uploadFile);
+            // console.log(uploadFile);
+            // for (let i of formData.entries()) {
+            //     console.log(i[1]);
+            // }
             await axios({
                 method: "post",
                 url: "http://localhost:3001/posts",
@@ -79,7 +85,7 @@ const Form = () => {
             id: nanoid(),
             title,
             personnel,
-        
+
             departureDate,
             arrivalDate,
             content,
@@ -87,8 +93,8 @@ const Form = () => {
             city,
             img,
         };
-        dispatch(__addTavelCard(addCard));
-        // navigate(-1);
+        dispatch(__addTravelCard(addCard));
+        navigate(-1);
     };
     return (
         <>

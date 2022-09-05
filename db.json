@@ -7,6 +7,10 @@
     {
       "content": "ㅇㄹㄴㅇㄹ",
       "id": 2
+    },
+    {
+      "content": "ㅇㄴㄴㅇㄹㄴㅇㄹ",
+      "id": 3
     }
   ],
   "posts": [
@@ -41,52 +45,28 @@
       "img": ""
     },
     {
-      "id": "epXoeS0cvcXQ7HzXpsush",
-      "city": "CITY",
+      "id": "uTqIRMljgg447rtzEZ2VJ",
+      "title": "부산갈사람",
+      "personnel": "5",
+      "departureDate": "2022-09-05",
+      "arrivalDate": "2022-09-06",
+      "content": "부산 같이 갈 사람 구합니다아~~~",
+      "city": "부산",
       "img": ""
     },
     {
-      "id": "hgEl80A"
-    },
-    {
-      "id": "cTY0TQm1hrbm2CaigARJi",
-      "title": "dddd",
-      "personnel": "ddd",
-      "departureDate": "dd",
-      "arrivalDate": "ddd",
-      "content": "ddd",
-      "city": "강원",
+      "id": "i2ECQLCOnVAVMe4CzB1kT",
+      "city": "부산",
       "img": ""
     },
     {
-      "id": "JOfNjrv"
-    },
-    {
-      "id": "3BKKhYUbog7QBdiqAPHr0",
-      "city": "CITY",
-      "img": ""
-    },
-    {
-      "id": "-3Ew1Xw"
-    },
-    {
-      "id": "PKZux6--2LsygemqVNfR4",
-      "city": "CITY",
-      "img": ""
-    },
-    {
-      "id": "2J8H1vBJtLTajp6rEGxrY",
-      "city": "CITY",
-      "img": ""
-    },
-    {
-      "id": "-1J6nNZMMTHF92oQsPBXw",
-      "city": "CITY",
-      "img": ""
-    },
-    {
-      "id": "pDk4oEBFYRBhy2r7aW0zp",
-      "city": "CITY",
+      "id": "x5eaYaecC5UQJqtDFWudv",
+      "title": "여수 밤바다 놀러갈 사람",
+      "personnel": "5",
+      "departureDate": "2022-09-05",
+      "arrivalDate": "2022-09-10",
+      "content": "여수 밤바다~~",
+      "city": "전라",
       "img": ""
     }
   ]

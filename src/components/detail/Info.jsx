@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-function Info() {
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { __deleteTravelCard } from "../../redux/module/TravelFormSlice";
+function Info({
+    id,
+    title,
+    personnel,
+    departureDate,
+    arrivalDate,
+    content,
+    city,
+}) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [imgUrl, setImgUrl] = useState("");
+
+    // const cardUpdateHandler = (e) => {
+
+    // }
+
+    const cardDeleteHandler = (e) => {
+        e.preventDefault();
+        dispatch(__deleteTravelCard(id));
+        navigate(-1);
+    };
     return (
         <div>
             <InfoBtnContainer>
-                <DetailPageBtn>MainPage</DetailPageBtn>
+                {/* <DetailPageBtn>MainPage</DetailPageBtn> */}
                 <DetailPageBtn>여행후기</DetailPageBtn>
                 <Link to={`/edit`}>
-                <DetailPageBtn>수정</DetailPageBtn> 
+                    <DetailPageBtn>수정</DetailPageBtn>
                 </Link>
-                <DetailPageBtn>삭제</DetailPageBtn>
-                
+                <DetailPageBtn onClick={cardDeleteHandler}>삭제</DetailPageBtn>
             </InfoBtnContainer>
             <InfoBox>
                 <DetailPageImg
@@ -20,11 +42,13 @@ function Info() {
                 />
                 <DetailPageContent>
                     <div>작성자 : 김정원</div>
-                    <div>지역이름 : 제주도</div>
-                    <div>여행날짜 : 2022-09-03</div>
+                    <div>지역이름 : {city}</div>
+                    <div>
+                        여행날짜 : {departureDate} ~ {arrivalDate}
+                    </div>
                     <div>MBTI : ISFP</div>
-                    <div>내용 : 제주도 스쿠터 여행 하실 분 같이 가요~</div>
-                    <div>참여 모임 인원수: 3/4</div>
+                    <div>내용 : {content}</div>
+                    <div>참여 모임 인원수: 3/{personnel}</div>
                 </DetailPageContent>
             </InfoBox>
             <br />
@@ -32,7 +56,6 @@ function Info() {
             <JoinBtn>참여하기</JoinBtn>
             <br />
             <br />
-           
         </div>
     );
 }
