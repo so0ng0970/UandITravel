@@ -15,10 +15,10 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/detail/:id" element={<TravelDetailPage />} />
-                <Route path="/edit" element={<TravelEditPage />} />
+                <Route path="/edit/:id" element={<TravelEditPage />} />
                 <Route path="/form" element={<TravelFormPage />} />
                 <Route path="/list" element={<TravelListPage />} />
-                <Route path="/review" element={<TravelReviewPage />} />
+                <Route path="/review/:id" element={<TravelReviewPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/sign" element={<SignPage />} />
             </Routes>

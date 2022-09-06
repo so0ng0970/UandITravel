@@ -9,7 +9,7 @@ const TravelCard = ({ posts }) => {
     const { title, departureDate, arrivalDate, city, id, content, personnel } =
         posts;
     console.log(title, departureDate, arrivalDate, city, id);
-
+ 
     const data = {
         id: id,
         title: title,
@@ -48,7 +48,7 @@ const TravelCard = ({ posts }) => {
                                 <div>
                                     <div key={posts.id}>
                                         <CardTiltle>{title}</CardTiltle>
-                                        <br></br>
+                                  
                                         <CardContent>MBTI : ISFP</CardContent>
 
                                         <CardContent>
@@ -89,7 +89,7 @@ const Cardcontainer = styled.div`
         /* border: 1px solid black; */
         /* display: flex; */
         justify-content: center;
-        width: 100%;
+      
         min-width: 270px;
         max-width: 400px;
         height: 100%;
@@ -99,6 +99,7 @@ const Cardcontainer = styled.div`
         border-radius: 20px;
         box-shadow: 5px 5px 7px 3px gray; //box-shadow: offset-x | offset-y | blur-radius | spread-radius | color
         padding: 10px;
+        overflow: hidden;
     }
     &:hover {
         transform: scale (1.5);
@@ -109,24 +110,24 @@ const CardFigure = styled.div``;
 
 const ImgContainer = styled.div`
     position: relative;
-    width: 90%;
+   
     height: 15vw;
     object-fit: scale-down;
-    margin: 10px;
+    margin:15px;
     object-position: center;
     text-align: center;
+
 `;
 
 const CardImg = styled.img`
     position: absoute;
     width: 100%;
     height: 15vw;
-    bottom: 0;
-    left: 10px;
-    right: 0;
-    margin: auto;
+ 
+    
     object-fit: cover;
     border-radius: 5px;
+    /* overflow: hidden; */
 `;
 
 const CardTiltle = styled.h2`

@@ -52,6 +52,20 @@ export const __deleteTravelCard = createAsyncThunk(
         }
     }
 );
+export const __updateTravelCard= createAsyncThunk(
+    "travel/UPDATE_MUSIC",
+  async (payload, thunkAPI) => {
+      try {
+          const data = await axios.put(
+              `http://localhost:3001/posts/${payload.id}`,
+              payload
+          );
+          return thunkAPI.fulfillWithValue(data.data);
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error);
+      }
+  }  );
+
 
 const cardpost = createSlice({
     name: "cardpost",
@@ -101,6 +115,19 @@ const cardpost = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        [__updateTravelCard]: (state) => {
+            state.isLoading = true;
+          },
+          [__updateTravelCard]: (state, action) => {
+            state.isLoading = false;
+            state.posts = state.posts.map((posts) =>
+            posts.id === action.payload.id ? { ...action.payload } :posts
+            );
+          },
+          [__updateTravelCard]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+          },
     },
 });
 export default cardpost.reducer;

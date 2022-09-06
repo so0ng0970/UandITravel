@@ -1,18 +1,26 @@
 import React from 'react';
-import EditForm from '../components/travelform/EditForm'
+
 import styled from "styled-components";
 import Header from "../components/header/Header"
-
+import { motion } from "framer-motion";
+import TravelEditor from '../components/travelform/TravelEditor';
+import { Link } from "react-router-dom";
 const TravelEditPage = () => {
+
     return (
+      <motion.div
+      initial={{opacity: 0.2}}
+      animate={{opacity: 1}}
+      exit={{opacity:30}}
+      >
         <div>
-            <Background> 
-       <Header/>
-          <Div>
-          <EditForm/>  
-          </Div>
-          </Background>   
+    
+        
+          <TravelEditor/>
+       
+     
         </div>
+        </motion.div>  
     );
 };
 

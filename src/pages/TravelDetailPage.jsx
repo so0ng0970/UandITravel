@@ -13,11 +13,11 @@ const TravelDetailPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const { isLoading, error, posts } = useSelector((state) => state.cardpost);
-    // const { commentIsLoading, commentError, comment } = useSelector(
-    //     (state) => state.comment
-    // );
+    const { commentIsLoading, commentError, comment } = useSelector(
+        (state) => state.comment
+    );
     const getTravelCard = posts.find((card) => card.id === id); //crud의 read 필요없음.
-    // const getComment = comment.filter((comment) => comment.postId === id);
+    // const getCardComment = comment.filter((comment) => comment.postId === id);
     // const state = useSelector((state) => state);
     // console.log(state.comment);
     // console.log(comment);
@@ -30,10 +30,10 @@ const TravelDetailPage = () => {
     //     dispatch(getComment());
     // }, [dispatch]);
 
-    if (isLoading) {
+    if (isLoading || commentIsLoading) {
         return <div>Loading . . .</div>;
     }
-    if (error) {
+    if (error || commentError) {
         return <div>{error.message}</div>;
     }
 
@@ -65,7 +65,6 @@ const Div = styled.div`
     overflow: auto;
     height: 82vh;
     margin: 10px 100px;
-
     background-color: #ffffffd0;
     border-radius: 10px;
 `;

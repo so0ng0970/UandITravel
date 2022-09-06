@@ -28,10 +28,10 @@ function Info({
     return (
         <div>
             <InfoBtnContainer>
-                <Link to={`/review`}>
+                <Link to={`/review/${id}`}>
                     <DetailPageBtn>여행후기</DetailPageBtn>
                 </Link>
-                <Link to={`/edit`}>
+                <Link to={`/edit/${id}`}>
                     <DetailPageBtn>수정</DetailPageBtn>
                 </Link>
                 <DetailPageBtn onClick={cardDeleteHandler}>삭제</DetailPageBtn>
