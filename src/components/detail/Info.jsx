@@ -28,8 +28,9 @@ function Info({
     return (
         <div>
             <InfoBtnContainer>
-                {/* <DetailPageBtn>MainPage</DetailPageBtn> */}
-                <DetailPageBtn>여행후기</DetailPageBtn>
+                <Link to={`/review`}>
+                    <DetailPageBtn>여행후기</DetailPageBtn>
+                </Link>
                 <Link to={`/edit`}>
                     <DetailPageBtn>수정</DetailPageBtn>
                 </Link>

@@ -7,18 +7,19 @@ import Header from "../components/header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getTravelList } from "../redux/module/TravelFormSlice";
+import { getComment } from "../redux/module/TravelCommentSlice";
 
 const TravelDetailPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const { isLoading, error, posts } = useSelector((state) => state.cardpost);
-    //   const { commentIsLoading, commentError, comment } = useSelector(
+    // const { commentIsLoading, commentError, comment } = useSelector(
     //     (state) => state.comment
     // );
     const getTravelCard = posts.find((card) => card.id === id); //crud의 read 필요없음.
     // const getComment = comment.filter((comment) => comment.postId === id);
-    const state = useSelector((state) => state);
-    console.log(state);
+    // const state = useSelector((state) => state);
+    // console.log(state.comment);
     // console.log(comment);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ const TravelDetailPage = () => {
     }, [dispatch]);
 
     // useEffect(() => {
-    //     dispatch(__getComment());
+    //     dispatch(getComment());
     // }, [dispatch]);
 
     if (isLoading) {
