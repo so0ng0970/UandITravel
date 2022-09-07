@@ -19,6 +19,13 @@ const Sign= () => {
       setPasswordError("")
   }
 }
+// const checkPassword = (e) => {
+//   //  8 ~ 10자 영문, 숫자 조합
+//   var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/
+//   // 형식에 맞는 경우 true 리턴
+//   console.log('비밀번호 유효성 검사 :: ', regExp.test(e.target.value))
+// }
+
 
 function onChangepassWordConfirm(event){
   setpassWordConfirm(event.target.value)
