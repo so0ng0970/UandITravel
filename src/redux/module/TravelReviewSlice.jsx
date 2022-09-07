@@ -13,7 +13,7 @@ const initialState = {
     "review/getReview",
    async (payload, thunkAPI) => {
    try{
-    const data = await axios.get(`/api/review/`);
+    const data = await axios.get(`/api/review/${payload}`);
     console.log(data)
     return thunkAPI.fulfillWithValue(data.data);
     }catch (error) {

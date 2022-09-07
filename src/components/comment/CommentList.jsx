@@ -45,7 +45,7 @@ const CommentList = () => {
     };
 
     useEffect(() => {
-        dispatch(getComment());
+        dispatch(getComment(id));
     }, []);
 
     // useEffect(() => {

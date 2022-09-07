@@ -60,7 +60,7 @@ const TravelReviewPage = () => {
     };
 
   useEffect(() => {
-    dispatch(getReview());
+    dispatch(getReview(id));
   }, []);
 
 
