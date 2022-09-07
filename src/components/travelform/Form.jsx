@@ -9,8 +9,8 @@ import "./Button.css";
 import { Link } from "react-router-dom";
 import useInput from "../hooks/useInput";
 import axios from "axios";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // css import
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css'; // css import
 
 
 const Form = () => {
@@ -156,8 +156,12 @@ const Form = () => {
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                               
                                                     name="personnel"
+                                                    type="number"
+                                                    step='3'
+                                                    min='1'
+                                                    max='100'
                                                     placeholder="✎"
                                                     onChange={
                                                         onChangePersonnelHandler
@@ -203,6 +207,12 @@ const Form = () => {
                                     </div>
                                 </div>
                             </Card02>
+                        
+
+
+                         <div>
+                
+                         </div>
 
                             <Card02 className="field">
                                 <div className="control">
@@ -214,7 +224,7 @@ const Form = () => {
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                                    type="date"
                                                     name="departureDate"
                                                     placeholder="✎"
                                                     onChange={
@@ -232,7 +242,7 @@ const Form = () => {
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                                    type="date"
                                                     name="arrivalDate"
                                                     placeholder="✎"
                                                     onChange={
@@ -270,6 +280,7 @@ const Form = () => {
                                     <Button
                                         className="button"
                                         onClick={submitHandler}
+                                        type='submit' 
                                     >
                                         <h>작성완료</h>&nbsp;&nbsp;&nbsp;
                                         <h1>

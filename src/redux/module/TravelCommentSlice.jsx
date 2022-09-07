@@ -7,7 +7,7 @@ const initialState = {
   error:null,
 
 };
-
+//여행폼조회
 export const getComment = createAsyncThunk(
   "comment/getComment",
  async (payload, thunkAPI) => {
@@ -20,8 +20,6 @@ export const getComment = createAsyncThunk(
     return thunkAPI.rejectWithValue(error);
   }
 
-
-
  }
 );
 
@@ -31,18 +29,18 @@ export const  TravelComment = createSlice({
   initialState,
   reducers: {},
   extraReducers : {
-    // [getComment.pending]: (state) => {
-    //   state.isLoading = true; 
-    // },
+    [getComment.pending]: (state) => {
+      state.isLoading = true; 
+    },
 
     [getComment.fulfilled]: (state, action) => {
       state.success= false;
       state.comment = action.payload;
     },
-    // [getComment.rejected]: (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // },
+    [getComment.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
 
 
   }
