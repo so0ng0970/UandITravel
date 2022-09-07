@@ -17,6 +17,7 @@ function CommentForm() {
     const fetchComments = async () => {
         const { data } = await axios.get("http://localhost:3001/comment");
         setComments(data);
+        
     };
 
     //POST

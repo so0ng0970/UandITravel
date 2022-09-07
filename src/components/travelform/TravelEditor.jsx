@@ -169,13 +169,18 @@ const { id } = useParams();
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                                    type="number"
+                                                    step='3'
+                                                    min='1'
+                                                    max='100'
                                                     name="personnel"
                                                     placeholder="✎"
                                                     onChange={
                                                         onChangePersonnelHandler}
-                                                    // value={personnel}
-                                                />
+                                                  
+                                                  
+                                                />   
+                                               
                                                 <span class="icon is-small is-left">
                                                     <i class="fas fa-user"></i>
                                                 </span>
@@ -227,7 +232,7 @@ const { id } = useParams();
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                                    type="date"
                                                     name="departureDate"
                                                     placeholder="✎"
                                                     onChange={
@@ -246,7 +251,7 @@ const { id } = useParams();
                                                 </label>
                                                 <Input
                                                     className="input"
-                                                    type="text"
+                                                    type="date"
                                                     name="arrivalDate"
                                                     placeholder="✎"
                                                     onChange={
@@ -285,10 +290,10 @@ const { id } = useParams();
 
                                 <Link to={`/detail/${id}`}>
                               
-                                    <Button
-                                        className="button"
-                                        onClick={updateHandler}>
-                                       
+                                    <Button 
+                                    className="button"
+                                  onClick={updateHandler}>
+                                      
                                         <h>수정완료</h>&nbsp;&nbsp;&nbsp;
                                         <h1>
                                             <span>.</span>&nbsp; <span>.</span>
