@@ -95,7 +95,7 @@ const { id } = useParams();
           
             await axios({
                 method: "post",
-                url: "http://localhost:3001/posts",
+                url: "/posts",
                 data: formData,
                 header: {
                     "content-Type": "multipart / form-data", //다수의 파일객체.
@@ -170,7 +170,7 @@ const { id } = useParams();
                                                 <Input
                                                     className="input"
                                                     type="number"
-                                                    step='3'
+                                                    step='1'
                                                     min='1'
                                                     max='100'
                                                     name="personnel"

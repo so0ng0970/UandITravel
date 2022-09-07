@@ -38,7 +38,7 @@ const TravelReviewPage = () => {
     });
  const makeInput = async (review, id) => {
         await axios
-            .put(`http://localhost:3001/review/${id}`, {
+            .put(`/api/auth/review/{review${id}}`, {
                 ...review,
                 input: 1,
             })
@@ -47,14 +47,14 @@ const TravelReviewPage = () => {
   //수정업데이트  
     const onClickUpdate = async (id, updated) => {
         await axios
-            .put(`http://localhost:3001/review/${id}`, updated)
+            .put(`/api/auth/review/${id}`, updated)
          .then(dispatch(getReview()))               //추가시 반응이 느리고 가끔 안먹힐때 있음 
             .catch((error) => console.log(error));
     };
-    
+    //삭제
     const onClickDelete = async (id) => {
         await axios
-            .delete(`http://localhost:3001/review/${id}`)
+            .delete(`/api/auth/review/${id}`)
             .then(dispatch(getReview()))              //추가시 반응이 느리고 가끔 안먹힐때 있음 
             .catch((error) => console.log(error));
     };

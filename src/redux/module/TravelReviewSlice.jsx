@@ -13,7 +13,7 @@ const initialState = {
     "review/getReview",
    async (payload, thunkAPI) => {
    try{
-    const data = await axios.get("http://localhost:3001/review");
+    const data = await axios.get(`/api/review/}`);
     console.log(data)
     return thunkAPI.fulfillWithValue(data.data);
     }catch (error) {
@@ -30,7 +30,7 @@ export const postReview = createAsyncThunk(
     async (payload, thunkAPI) => {
         try {
             const data = await axios.post(
-                "http://localhost:3001/review",
+                " /api/auth/participation",
                 payload
             );
             console.log(data.data);
@@ -47,7 +47,7 @@ export const postReview = createAsyncThunk(
 //     async (payload, thunkAPI) => {
 //         try {
 //             const data = await axios.delete(
-//                 `http://localhost:3001/review/${payload}`
+//                 `/review/${payload}`
 //             );
 //             return thunkAPI.fulfillWithValue(payload);
 //         } catch (error) {
@@ -62,7 +62,7 @@ export const postReview = createAsyncThunk(
 //   async (payload, thunkAPI) => {
 //       try {
 //           const data = await axios.put(
-//               `http://localhost:3001/review${payload.id}`,
+//               `/review${payload.id}`,
 //               payload
 //           );
 //           return thunkAPI.fulfillWithValue(data.data);
@@ -79,7 +79,7 @@ export const  TravelReview = createSlice({
     reducers: {},
     extraReducers : {
       [getReview.pending]: (state) => {
-        state.isLoading = true; 
+        state.success = true; 
       },
   
       [getReview.fulfilled]: (state, action) => {
@@ -87,48 +87,48 @@ export const  TravelReview = createSlice({
         state.review = action.payload;
       },
       [getReview.rejected]: (state, action) => {
-        state.isLoading = false;
+        state.success = false;
         state.error = action.payload;
       },
         //post
         [postReview .pending]: (state) => {
-            state.isLoading = true;
+            state.success = true;
         },
         [postReview .fulfilled]: (state, action) => {
-            state.isLoading = false;
+            state.success = false;
             state.review.push(action.payload);
             console.log(action);
         },
 
         [postReview .rejected]: (state, action) => {
-            state.isLoading = false;
+            state.success = false;
             state.error = action.payload;
         },
          //삭제 
       //   [deleteReview.pending]: (state) => {
-      //     state.isLoading = true;
+      //     state.success = true;
       // },
       // [deleteReview.fulfilled]: (state, action) => {
-      //     state.isLoading = false;
+      //     state.success = false;
       //     state.review = state.review.filter(
       //         (review) => review.id !== action.payload
       //     );
       // },
       // [deleteReview.rejected]: (state, action) => {
-      //     state.isLoading = false;
+      //     state.success = false;
       //     state.error = action.payload;
       // },
       // [updateReview]: (state) => {
-      //     state.isLoading = true;
+      //     state.success = true;
       //   },
       //   [updateReview]: (state, action) => {
-      //     state.isLoading = false;
+      //     state.success = false;
       //     state.review = state.review.map((review) =>
       //     review.id === action.payload.id ? { ...action.payload } :review
       //     );
       //   },
       //   [updateReview]: (state, action) => {
-      //     state.isLoading = false;
+      //     state.success = false;
       //     state.error = action.payload;
       //   },
     }

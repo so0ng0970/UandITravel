@@ -12,8 +12,8 @@ import { getComment } from "../redux/module/TravelCommentSlice";
 const TravelDetailPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const { isLoading, error, posts } = useSelector((state) => state.cardpost);
-    const { commentIsLoading, commentError, comment } = useSelector(
+    const { success, error, posts } = useSelector((state) => state.cardpost);
+    const { commentsuccess, commentError, comment } = useSelector(
         (state) => state.comment
     );
     const getTravelCard = posts.find((card) => card.id === id); //crud의 read 필요없음.
@@ -30,7 +30,7 @@ const TravelDetailPage = () => {
     //     dispatch(getComment());
     // }, [dispatch]);
 
-    if (isLoading || commentIsLoading) {
+    if (success || commentsuccess) {
         return <div>Loading . . .</div>;
     }
     if (error || commentError) {

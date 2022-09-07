@@ -22,7 +22,7 @@ const CommentList = () => {
     //삭제
     const onClickDelete = async (id) => {
         await axios
-            .delete(`http://localhost:3001/comment/${id}`)
+            .delete(` /api/comment/${id}`)
             .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };
@@ -30,7 +30,7 @@ const CommentList = () => {
     //  수정
     const makeInput = async (comment, id) => {
         await axios
-            .put(`http://localhost:3001/comment/${id}`, {
+            .put(` /api/auth/comment/${id}`, {
                 ...comment,
                 input: 1,
             })
@@ -39,7 +39,7 @@ const CommentList = () => {
 
     const onClickUpdate = async (id, updated) => {
         await axios
-            .put(`http://localhost:3001/comment/${id}`, updated)
+            .put(` /api/auth/comment/${id}`, updated)
             .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };

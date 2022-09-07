@@ -34,7 +34,7 @@ const account = () => {
   // Request API.
   // Add your own code here to customize or restrict how the public can register new users.
   axios
-    .post("http://localhost:3001/sign", {
+    .post("/sign", {
       nickName: nickName,
       writer: writer,
       mbti: mbti,

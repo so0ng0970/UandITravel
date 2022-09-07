@@ -15,7 +15,7 @@ function CommentForm() {
     });
     const [comments, setComments] = useState(null);
     const fetchComments = async () => {
-        const { data } = await axios.get("http://localhost:3001/comment");
+        const { data } = await axios.get("/comment");
         setComments(data);
         
     };
@@ -23,7 +23,7 @@ function CommentForm() {
     //POST
 
     const onSubmitHandler = (comment) => {
-        axios.post("http://localhost:3001/comment", comment);
+        axios.post("/api/auth/comment", comment);
     };
 
     useEffect(() => {

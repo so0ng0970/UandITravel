@@ -12,7 +12,7 @@ export const getComment = createAsyncThunk(
   "comment/getComment",
  async (payload, thunkAPI) => {
  try{
-  const data = await axios.get("http://localhost:3001/comment");
+  const data = await axios.get(`/api/comment/${id}`);
   
   return thunkAPI.fulfillWithValue(data.data);
   }catch (error) {
@@ -30,7 +30,7 @@ export const  TravelComment = createSlice({
   reducers: {},
   extraReducers : {
     [getComment.pending]: (state) => {
-      state.isLoading = true; 
+      state.success = true; 
     },
 
     [getComment.fulfilled]: (state, action) => {
@@ -38,7 +38,7 @@ export const  TravelComment = createSlice({
       state.comment = action.payload;
     },
     [getComment.rejected]: (state, action) => {
-      state.isLoading = false;
+      state.success = false;
       state.error = action.payload;
     },
 

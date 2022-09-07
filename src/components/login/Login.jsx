@@ -58,7 +58,7 @@ const Login = () => {
 
     const loginHandler = () => {
         axios
-            .post("http://localhost:3001/sign", {
+            .post("/sign", {
                 nickName: nickName,
                 password: passWord,
                 // passWordConfirm: passWordConfirm,

@@ -34,7 +34,7 @@ function Info({
             alert("참여인원이 마감되었습니다.");
         }
         setToggle(!toggle);
-        // axios.post("http://localhost:3001/posts", { postId: id });
+        // axios.post("/posts", { postId: id });
     };
 
     const cencelHandler = (e) => {
@@ -43,7 +43,7 @@ function Info({
             setJoinCount(parseInt(joinCount) - 1);
         }
         setToggle(!toggle);
-        // axios.post("http://localhost:3001/posts", { postId: id });
+        // axios.post("/posts", { postId: id });
     };
 
     axios.get(`/api/auth/participation/${id}`);
