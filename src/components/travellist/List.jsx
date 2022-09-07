@@ -16,13 +16,9 @@ const List = () => {
     return (
         <ListContainer>
             <GridContainer>
-                {posts.map((posts) => {
-                    if (posts.content) {
-                        return <TravelCard posts={posts} key={posts.id} />;
-                    } else {
-                        return null;
-                    }
-                })}
+                {posts.map((posts) => (
+                    <TravelCard posts={posts} key={posts.id} />
+                ))}
             </GridContainer>
         </ListContainer>
     );

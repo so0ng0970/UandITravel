@@ -12,6 +12,7 @@ const CommentList = () => {
     // console.log("하이", comment);
 
     const [comments, setComments] = useState(null);
+
     const [updatedTitle, setUpdatedTitle] = useState({
         content: "",
         input: 0,
@@ -22,24 +23,24 @@ const CommentList = () => {
     const onClickDelete = async (id) => {
         await axios
             .delete(`http://localhost:3001/comment/${id}`)
-            // .then(dispatch(getComment()))              //추가시 반응이 느리고 가끔 안먹힐때 있음 
+            .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };
 
-  //  수정
+    //  수정
     const makeInput = async (comment, id) => {
         await axios
             .put(`http://localhost:3001/comment/${id}`, {
                 ...comment,
                 input: 1,
             })
-            .then(dispatch(getComment()));         //이건 없으면 구현이 안됨    
+            .then(dispatch(getComment())); //이건 없으면 구현이 안됨
     };
 
     const onClickUpdate = async (id, updated) => {
         await axios
             .put(`http://localhost:3001/comment/${id}`, updated)
-         // .then(dispatch(getComment()))               //추가시 반응이 느리고 가끔 안먹힐때 있음 
+            .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };
 
@@ -47,17 +48,17 @@ const CommentList = () => {
         dispatch(getComment());
     }, []);
 
-    useEffect(() => {
-        dispatch(getComment());
-    }, [makeInput]);
+    // useEffect(() => {
+    //     dispatch(getComment());
+    // }, [makeInput]);
 
-    useEffect(() => {
-        dispatch(getComment());
-    }, [onClickUpdate]);
+    // useEffect(() => {
+    //     dispatch(getComment());
+    // }, [onClickUpdate]);
 
-    useEffect(() => {
-        dispatch(getComment());
-    }, [onClickDelete]);
+    // useEffect(() => {
+    //     dispatch(getComment());
+    // }, [onClickDelete]);
 
     return (
         <div>
@@ -78,20 +79,22 @@ const CommentList = () => {
                                             <small>@gardenk</small>{" "}
                                             <small>31m</small>
                                             <button
-                                                onClick={() =>
-                                                    onClickDelete(comment.id)
-                                                }
+                                                onClick={(e) => {
+                                                    // e.preventDefault();
+                                                    onClickDelete(comment.id);
+                                                }}
                                                 className="button is-ghost"
                                             >
                                                 삭제
                                             </button>
                                             <button
-                                                onClick={() =>
+                                                onClick={(e) => {
+                                                    // e.preventDefault();
                                                     makeInput(
                                                         comment,
                                                         comment.id
-                                                    )
-                                                }
+                                                    );
+                                                }}
                                                 className="button is-ghost"
                                             >
                                                 수정
@@ -99,24 +102,26 @@ const CommentList = () => {
                                             {comment.input === 1 ? (
                                                 <div key={comment.id}>
                                                     <input
-                                                        onChange={(e) =>
+                                                        onChange={(e) => {
+                                                            // e.preventDefault();
                                                             setUpdatedTitle({
                                                                 ...comment,
                                                                 content:
                                                                     e.target
                                                                         .value,
                                                                 input: 0,
-                                                            })
-                                                        }
+                                                            });
+                                                        }}
                                                     ></input>
 
                                                     <button
-                                                        onClick={() =>
+                                                        onClick={(e) => {
+                                                            // e.preventDefault();
                                                             onClickUpdate(
                                                                 comment.id,
                                                                 updatedTitle
-                                                            )
-                                                        }
+                                                            );
+                                                        }}
                                                     >
                                                         수정완료
                                                     </button>

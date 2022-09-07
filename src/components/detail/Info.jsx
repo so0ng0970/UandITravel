@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { __deleteTravelCard } from "../../redux/module/TravelFormSlice";
+import axios from "axios";
 function Info({
     id,
     title,
@@ -15,16 +16,37 @@ function Info({
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [imgUrl, setImgUrl] = useState("");
-
-    // const cardUpdateHandler = (e) => {
-
-    // }
+    const [joinCount, setJoinCount] = useState("0");
+    const [toggle, setToggle] = useState(true);
 
     const cardDeleteHandler = (e) => {
         e.preventDefault();
         dispatch(__deleteTravelCard(id));
         navigate(-1);
     };
+
+    const joinHandler = (e) => {
+        e.preventDefault();
+        // let IntjoinCount=parseInt(joinCount)
+        if (joinCount < personnel) {
+            setJoinCount(parseInt(joinCount) + 1);
+        } else {
+            alert("참여인원이 마감되었습니다.");
+        }
+        setToggle(!toggle);
+        // axios.post("http://localhost:3001/posts", { postId: id });
+    };
+
+    const cencelHandler = (e) => {
+        e.preventDefault();
+        if (joinCount > 0) {
+            setJoinCount(parseInt(joinCount) - 1);
+        }
+        setToggle(!toggle);
+        // axios.post("http://localhost:3001/posts", { postId: id });
+    };
+
+    axios.get(`/api/auth/participation/${id}`);
     return (
         <div>
             <InfoBtnContainer>
@@ -49,12 +71,19 @@ function Info({
                     </div>
                     <div>MBTI : ISFP</div>
                     <div>내용 : {content}</div>
-                    <div>참여 모임 인원수: 3/{personnel}</div>
+                    <div>
+                        참여 모임 인원수: {joinCount}/{personnel}
+                    </div>
                 </DetailPageContent>
             </InfoBox>
             <br />
             <br />
-            <JoinBtn>참여하기</JoinBtn>
+            {toggle ? (
+                <JoinBtn onClick={joinHandler}>참여하기</JoinBtn>
+            ) : (
+                <JoinBtn onClick={cencelHandler}>취소</JoinBtn>
+            )}
+
             <br />
             <br />
         </div>
