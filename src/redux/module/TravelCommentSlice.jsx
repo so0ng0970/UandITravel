@@ -12,7 +12,7 @@ export const getComment = createAsyncThunk(
   "comment/getComment",
  async (payload, thunkAPI) => {
  try{
-  const data = await axios.get("http://localhost:3001/comment");
+  const data = await axios.get(`http://localhost:3001/comment`);
   
   return thunkAPI.fulfillWithValue(data.data);
   }catch (error) {
