@@ -84,6 +84,65 @@
       "content": "여수 밤바다~~",
       "city": "전라",
       "img": ""
+    },
+    {
+      "id": "bJ9FurK0kP-99c-PveaZW",
+      "title": "sqdsfafa",
+      "personnel": "13",
+      "departureDate": "2022-09-10",
+      "arrivalDate": "2022-09-22",
+      "content": "cxvxcv",
+      "city": "경상",
+      "img": ""
+    },
+    {
+      "id": "MlhOHFtOuAj97dz6XEhdc",
+      "title": "vzdas",
+      "personnel": "22",
+      "departureDate": "2022-09-08",
+      "arrivalDate": "2022-09-18",
+      "content": "sdfsdfsd",
+      "city": "경기",
+      "img": ""
+    },
+    {
+      "id": "cS2py16XM5GPYVmpFGvHT",
+      "title": "sdfsdfsd",
+      "personnel": "10",
+      "departureDate": "2022-09-13",
+      "arrivalDate": "2022-09-20",
+      "content": "dfsdf",
+      "city": "경상",
+      "img": ""
+    },
+    {
+      "id": "OlQup9BqVOsngKpyVO4BA",
+      "title": "dsfsdfsd",
+      "personnel": "28",
+      "departureDate": "2022-09-22",
+      "arrivalDate": "2022-09-15",
+      "content": "sfsdfdsfsdfsdfsf",
+      "city": "경기",
+      "img": ""
+    }
+  ],
+  "review": [
+    {
+      "id": "XySGUjoINxKb1iJVrRnzN",
+      "postId": "OlQup9BqVOsngKpyVO4BA",
+      "content": "sfsdf"
+    },
+    {
+      "id": "3nLBnwhygBAAPR_EpUgFf",
+      "postId": "OlQup9BqVOsngKpyVO4BA",
+      "content": "sfsdfsdfsdf"
+    },
+    {
+      "id": "xQQ_KkOD4fDWoUIf7cVHt",
+      "postId": "OlQup9BqVOsngKpyVO4BA",
+      "content": "sfsdfsdfsdfsdfqsd"
     }
   ]
+  ,
+  "sign" : []
 }
