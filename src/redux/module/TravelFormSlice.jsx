@@ -4,6 +4,7 @@ import { getCookie } from "../../cookie";
 
 const initialState = {
     posts: [],
+    detail: [],
     success: false,
     error: null,
 };
@@ -40,6 +41,22 @@ export const getTravelList = createAsyncThunk(
     async (payload, thunkAPI) => {
         try {
             const data = await axios.get("http://43.201.36.176/api/post");
+            console.log(data.data);
+            return thunkAPI.fulfillWithValue(data.data);
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
+//detail page get 요청.
+export const getDetailPage = createAsyncThunk(
+    "travel/getDetailPage ",
+    async (postId, thunkAPI) => {
+        try {
+            const data = await axios.get(
+                `http://43.201.36.176/api/post/${postId}`
+            );
             console.log(data.data);
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
@@ -98,6 +115,12 @@ const cardpost = createSlice({
         [__addTravelCard.rejected]: (state, action) => {
             state.success = false;
             state.error = action.payload.data;
+        },
+
+        // detail page get 요청.
+        [getDetailPage.fulfilled]: (state, action) => {
+            state.detail = action.payload;
+            console.log(action.payload);
         },
 
         // getTravelList Thunk

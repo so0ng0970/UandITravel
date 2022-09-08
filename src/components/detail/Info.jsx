@@ -15,8 +15,8 @@ function Info({
     city,
     imageUrl,
 }) {
-    const post = useSelector((state) => state.post);
-    console.log(post);
+    const detail = useSelector((state) => state.posts.detail);
+    console.log(detail.data);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -74,7 +74,7 @@ function Info({
                     <div>
                         여행날짜 : {departureDate} ~ {arrivalDate}
                     </div>
-                    <div>MBTI : ISFP</div>
+                    <div>MBTI : {data.mbti}</div>
                     <div>내용 : {content}</div>
                     <div>
                         참여 모임 인원수: {joinCount}/{personnel}
