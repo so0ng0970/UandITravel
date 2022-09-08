@@ -13,12 +13,15 @@ const List = () => {
         dispatch(getTravelList());
     }, []);
 
+    // console.log(typeof posts);
+
     return (
         <ListContainer>
             <GridContainer>
-                {posts.map((posts) => (
-                    <TravelCard posts={posts} key={posts.id} />
-                ))}
+                {posts &&
+                    posts.map((posts) => (
+                        <TravelCard posts={posts} key={posts.id} />
+                    ))}
             </GridContainer>
         </ListContainer>
     );

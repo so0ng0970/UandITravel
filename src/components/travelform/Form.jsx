@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-// import PropTypes from "prop-types";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +8,7 @@ import "./Button.css";
 import { Link } from "react-router-dom";
 import useInput from "../hooks/useInput";
 import axios from "axios";
-// import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css'; // css import
-
+import { getCookie } from "../../cookie";
 
 const Form = () => {
     const [title, onChangeTitleHandler] = useInput();
@@ -20,9 +17,9 @@ const Form = () => {
     const [departureDate, onChangeDepartureDateHandler] = useInput();
     const [arrivalDate, onChangeArrivalDateHandler] = useInput();
     const [content, onChangeContentHandler] = useInput();
-    const [imgUrl, onChangeImgUrlHandler] = useInput();
+    // const [imgUrl, onChangeImgUrlHandler] = useInput();
+    const [imageFile, setImageFile] = useState("");
 
-    const [img, setImg] = useState("");
     const cityList = [
         "CITY",
         "서울",
@@ -48,55 +45,27 @@ const Form = () => {
     /** 이미지 파일 저장 **/
     const onChangeImg = async (e) => {
         e.preventDefault();
-        // setImg(e.target.files);
         const reader = new FileReader();
         const file = e.target.files[0];
         reader.readAsDataURL(file);
         reader.onloadend = () => {};
         if (e.target.files) {
-            const uploadFile = e.target.files[0]; //여기에 fakepath있을것...
-            const formData = new FormData(); //formData
-            formData.append("files", uploadFile); //key, value
-            // console.log(uploadFile);
-            // for (let i of formData.entries()) {
-            //     console.log(i[1]);
-            // }
-            await axios({
-                method: "post",
-                url: "http://localhost:3001/posts",
-                data: formData,
-                header: {
-                    "content-Type": "multipart / form-data", //다수의 파일객체.
-                },
-            });
+            const uploadFile = e.target.files[0];
+            setImageFile(uploadFile);
         }
-        // console.log(e.target.files);
     };
     const submitHandler = (e) => {
         e.preventDefault();
-        // if (!title) {
-        //     return setFormHelper("You Must Enter title to Proceed");
-        // }
+        const formData = new FormData(); //formData
 
-        // if (!personnel) {
-        //     return setFormHelper("You Must Enter personnel to Proceed");
-        // }
-        // if (!CoverUrl) {
-        //     return setFormHelper("You Must Enter Image File to Proceed");
-        // }
-        const addCard = {
-            id: nanoid(),
-            title,
-            personnel,
-
-            departureDate,
-            arrivalDate,
-            content,
-            imgUrl,
-            city,
-            img,
-        };
-        dispatch(__addTravelCard(addCard));
+        formData.append("imageFile", imageFile); //key, value
+        formData.append("title", title); //key, value
+        formData.append("personnel", parseInt(personnel)); //key, value
+        formData.append("departureDate", departureDate); //key, value
+        formData.append("arrivalDate", arrivalDate); //key, value
+        formData.append("content", content); //key, value
+        formData.append("city", city); //key, value
+        dispatch(__addTravelCard(formData));
         navigate(-1);
     };
     return (
@@ -156,12 +125,11 @@ const Form = () => {
                                                 </label>
                                                 <Input
                                                     className="input"
-                                               
                                                     name="personnel"
                                                     type="number"
-                                                    step='3'
-                                                    min='1'
-                                                    max='100'
+                                                    step="3"
+                                                    min="1"
+                                                    max="100"
                                                     placeholder="✎"
                                                     onChange={
                                                         onChangePersonnelHandler
@@ -207,12 +175,8 @@ const Form = () => {
                                     </div>
                                 </div>
                             </Card02>
-                        
 
-
-                         <div>
-                
-                         </div>
+                            <div></div>
 
                             <Card02 className="field">
                                 <div className="control">
@@ -280,7 +244,7 @@ const Form = () => {
                                     <Button
                                         className="button"
                                         onClick={submitHandler}
-                                        type='submit' 
+                                        type="submit"
                                     >
                                         <h>작성완료</h>&nbsp;&nbsp;&nbsp;
                                         <h1>

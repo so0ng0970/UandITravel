@@ -6,31 +6,31 @@ import styled from "styled-components";
 import Header from "../components/header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getTravelList } from "../redux/module/TravelFormSlice";
-import { getComment } from "../redux/module/TravelCommentSlice";
+import { getDetailPage } from "../redux/module/TravelFormSlice";
 
 const TravelDetailPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const { isLoading, error, posts } = useSelector((state) => state.cardpost);
-    const { commentIsLoading, commentError, comment } = useSelector(
+    const { success, error, posts } = useSelector((state) => state.cardpost);
+    const { commentsuccess, commentError, comment } = useSelector(
         (state) => state.comment
     );
-    const getTravelCard = posts.find((card) => card.id === id); //crud의 read 필요없음.
-    // const getCardComment = comment.filter((comment) => comment.postId === id);
-    // const state = useSelector((state) => state);
-    // console.log(state.comment);
-    // console.log(comment);
+    // const getTravelCard = posts.find((card) => card.postId === id); //crud의 read 필요없음.
+    // console.log(posts);
+
+    const detail = useSelector((state) => state.posts.detail);
+    const details = detail?.data;
+    console.log(detail?.data);
 
     useEffect(() => {
-        dispatch(getTravelList());
+        dispatch(getDetailPage(id));
     }, [dispatch]);
 
     // useEffect(() => {
     //     dispatch(getComment());
     // }, [dispatch]);
 
-    if (isLoading || commentIsLoading) {
+    if (success || commentsuccess) {
         return <div>Loading . . .</div>;
     }
     if (error || commentError) {
@@ -42,9 +42,9 @@ const TravelDetailPage = () => {
             <Header />
             <Div>
                 <DetailContainer>
-                    <Info {...getTravelCard} />
-                    <CommentForm />
-                    <CommentList />
+                    <Info {...details} />
+                    {/* <CommentForm /> */}
+                    {/* <CommentList /> */}
                 </DetailContainer>
             </Div>
         </Background>

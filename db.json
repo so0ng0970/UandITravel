@@ -131,6 +131,7 @@
       "id": 7
     },
     {
+<<<<<<< HEAD
       "content": "ㄹㅇㄴㅁㄴㅇㄹ",
       "postId": "55034s__Mi_CbXkE938mz",
       "id": "iwJAX4ohZ4htyqhT8E7y4"
@@ -144,6 +145,12 @@
       "content": "ㄴㅁㄹㄴㅇ",
       "postId": "55034s__Mi_CbXkE938mz",
       "id": "ueXm49Da1_OrfmPxgGvmw"
+=======
+      "content": "ㅇㄹㄴ",
+      "postId": "r-z_hlzcnO-6RD9UTrRHd",
+      "id": "_r7fvbY2eaSw3rWvrcPIB",
+      "input": 0
+>>>>>>> f436be0be48723d7f707c0c24a400eb00f1263dc
     }
   ],
   "posts": [
@@ -221,6 +228,36 @@
       "content": "fsdfsdfsdf",
       "city": "강원",
       "img": ""
+    },
+    {
+      "id": "mbBgwBaWyDTFSwqg82VJu",
+      "title": "56421852",
+      "personnel": "123456784512",
+      "departureDate": "2022-09-15",
+      "arrivalDate": "2022-10-14",
+      "content": "안녕 ",
+      "city": "인천",
+      "img": ""
+    },
+    {
+      "id": "fsHAr65"
+    },
+    {
+      "id": "7e5qEHbYnaNqzs52mNuxT",
+      "title": "ㄹㄴㅇㄹ",
+      "personnel": "1",
+      "departureDate": "2022-09-06",
+      "content": "123456879652185258963258",
+      "city": "경기",
+      "img": ""
+    },
+    {
+      "id": "XQHlyC0bjwrU35N4-ONIx",
+      "personnel": "1",
+      "title": "1",
+      "city": "강원",
+      "departureDate": "2022-09-10",
+      "content": "ㅇㄹㄴㅇㄹㄴㄹ"
     }
   ]
 }

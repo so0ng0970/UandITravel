@@ -2,54 +2,42 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import "bulma/css/bulma.min.css";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getTravelList } from "../../redux/module/TravelFormSlice";
-import axios from "axios";
+import { useSelector } from "react-redux";
+
 const TravelCard = ({ posts }) => {
-    const { title, departureDate, arrivalDate, city, id, content, personnel } =
-        posts;
-    console.log(title, departureDate, arrivalDate, city, id);
- 
-    const data = {
-        id: id,
-        title: title,
-        content: content,
-        departureDate: departureDate,
-        arrivalDate: arrivalDate,
-        personnel: personnel,
-        city: city,
-    };
+    const {
+        title,
+        departureDate,
+        arrivalDate,
+        city,
+        postId,
+        content,
+        personnel,
+    } = posts;
 
-    // const dispatch = useDispatch();
-    // const {posts} = useSelector ((state) =>state.posts)
-    // console.log('하이',posts)
-
-    // useEffect(() => {
-    //     dispatch(getTravelList());
-    //   }, []);
+    //    console.log("하이", posts[2].member.writer);
 
     return (
         <div>
-            <Link to={`/detail/${id}`}>
+            <Link to={`/detail/${postId}`}>
                 <Cardcontainer class="media">
                     <CardFigure class="media-center">
                         <ImgContainer class="image is-64x64">
-                            <CardImg
-                                hover
-                                src="https://i.pinimg.com/564x/ae/b5/49/aeb549a5892e4d62e343380285c18619.jpg"
-                            />
+                            <CardImg hover src={posts.imageUrl} />
                         </ImgContainer>
                     </CardFigure>
                     <div class="media-content">
                         <div class="content">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>{posts.member.writer}</strong>
                                 <small>@johnsmith</small> <small>31m</small>
                                 <div>
                                     <div key={posts.id}>
                                         <CardTiltle>{title}</CardTiltle>
-                                  
-                                        <CardContent>MBTI : ISFP</CardContent>
+
+                                        <CardContent>
+                                            {} : {posts.member.mbti}
+                                        </CardContent>
 
                                         <CardContent>
                                             {city},{personnel}명
@@ -89,7 +77,7 @@ const Cardcontainer = styled.div`
         /* border: 1px solid black; */
         /* display: flex; */
         justify-content: center;
-      
+
         min-width: 270px;
         max-width: 400px;
         height: 100%;
@@ -110,21 +98,19 @@ const CardFigure = styled.div``;
 
 const ImgContainer = styled.div`
     position: relative;
-   
+
     height: 15vw;
     object-fit: scale-down;
-    margin:15px;
+    margin: 15px;
     object-position: center;
     text-align: center;
-
 `;
 
 const CardImg = styled.img`
     position: absoute;
     width: 100%;
     height: 15vw;
- 
-    
+
     object-fit: cover;
     border-radius: 5px;
     /* overflow: hidden; */

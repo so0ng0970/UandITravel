@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getComment } from "../../redux/module/TravelCommentSlice";
+// import { getComment } from "../../redux/module/TravelCommentSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
+import { getCookie } from "../../cookie";
 
 function CommentForm() {
     const { id } = useParams();
@@ -14,16 +15,17 @@ function CommentForm() {
         postId: "",
     });
     const [comments, setComments] = useState(null);
-    const fetchComments = async () => {
-        const { data } = await axios.get("http://localhost:3001/comment");
+
+    //댓글 get
+    const fetchComments = async (id) => {
+        const { data } = await axios.get(`http://43.201.36.176/comment/${id}`);
         setComments(data);
-        
     };
 
     //POST
 
     const onSubmitHandler = (comment) => {
-        axios.post("http://localhost:3001/comment", comment);
+        axios.post("http://43.201.36.176/api/auth/comment", comment);
     };
 
     useEffect(() => {

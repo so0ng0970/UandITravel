@@ -1,75 +1,38 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
-
-// export const requestLogin = async (nickname, password) => {
-//     return await axios
-//         .post(
-//             `${serverURL}/login/`,
-//             {
-//                 nickname: nickname,
-//                 password: password,
-//             },
-//             { withCredentials: true } // refreshToken cookie를 주고 받을 수 있다.
-//         )
-//         .then((response) => {
-//             //성공했을 때
-//             /// token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
-//             axios.defaults.headers.common[
-//                 "Authorization"
-//             ] = `Bearer ${response.data.access_token}`;
-//             return response.data;
-//         })
-//         .catch((e) => {
-//             //에러가 났을 때
-//             console.log(e.response.data);
-//             return "이메일 혹은 비밀번호를 확인하세요.";
-//         });
-// };
-
-// export const requestAccessToken = async (refresh_token) => {
-//     return await axios
-//         .post(`${serverURL}/token/refresh/`, {
-//           Refresh_Token: refresh_token,
-//         })
-//         .then((response) => {
-//             return response.data.access;
-//         })
-//         .catch((e) => {
-//             console.log(e.response.data);
-//         });
-// };
-
-// export const checkAccessToken = async (refresh_token) => {
-//   if (axios.defaults.headers.common["Authorization"] === undefined) {
-//       return await requestAccessToken(refresh_token).then((response) => {
-//           return response;
-//       });
-//   } else {
-//       return axios.defaults.headers.common["Authorization"].split(" ")[1];
-//   }
-// };
+import { getCookie, setCookie } from "../../cookie";
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const [nickName, setNickName] = useState(""); // 사용자 아이디
     const [passWord, setPassWord] = useState(""); //비밀번호
 
+    const access_token = getCookie("Access_token");
+    axios.defaults.headers.common["Authorization"] = access_token;
+
+    const refresh_token = getCookie("Refresh_token");
+    axios.defaults.headers.common["Refresh_token"] = refresh_token;
+
     const loginHandler = () => {
         axios
-            .post("http://localhost:3001/sign", {
-                nickName: nickName,
+            .post("http://43.201.36.176/api/member/login", {
+                nickname: nickName,
                 password: passWord,
-                // passWordConfirm: passWordConfirm,
             })
             .then((response) => {
-                //동시에 일어나는 걸 막기위해 then 이라는 함수가 사용된다
-                // Handle success.
+                console.log("dddd", response.headers);
+
+                const access_token = response.headers["authorization"];
+                const refresh_token = response.headers["refresh-token"];
+                console.log(access_token);
+                console.log(access_token.split(" "));
+                setCookie("Access_token", access_token.split(" ")[1]);
+                setCookie("Refresh_token", refresh_token);
                 console.log("Well done!");
-                console.log("User token", response.data.jwt); //토큰을 받아오면
-                localStorage.setItem("token", response.data.jwt);
-                // replace("/") 홈으로 보내줘야한다
+                navigate("/");
             })
             .catch((error) => {
                 // Handle error.
