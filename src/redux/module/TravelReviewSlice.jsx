@@ -1,6 +1,12 @@
 import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getCookie } from "../../cookie";
 
+const access_token = getCookie("access_token");
+axios.defaults.headers.common["authorization"] = access_token;
+
+const refresh_token = getCookie("refresh_token");
+axios.defaults.headers.common["Refresh_token"] = refresh_token;
 
 const initialState = {
     review: [],
@@ -8,13 +14,14 @@ const initialState = {
     error:null,
   
   };
+  
   //여행리뷰댓글조회
   export const getReview = createAsyncThunk(
     "review/getReview",
    async (payload, thunkAPI) => {
    try{
-    const data = await axios.get(`/api/review/${payload}`);
-    console.log(data)
+    const data = await axios.get(`http://43.201.36.176/api/review/${payload}`);
+
     return thunkAPI.fulfillWithValue(data.data);
     }catch (error) {
       console.log(error);
@@ -28,12 +35,13 @@ const initialState = {
 export const postReview = createAsyncThunk(
     "review/postReview",
     async (payload, thunkAPI) => {
+      
         try {
             const data = await axios.post(
-                " /api/auth/participation",
+                " http://43.201.36.176/api/auth/participation",
                 payload
             );
-            console.log(data.data);
+          
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -97,7 +105,7 @@ export const  TravelReview = createSlice({
         [postReview .fulfilled]: (state, action) => {
             state.success = false;
             state.review.push(action.payload);
-            console.log(action);
+
         },
 
         [postReview .rejected]: (state, action) => {

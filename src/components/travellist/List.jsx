@@ -7,12 +7,11 @@ import React, { useEffect } from "react";
 const List = () => {
     const dispatch = useDispatch();
     const { posts } = useSelector((state) => state.posts);
-    console.log("하이", posts);
 
     useEffect(() => {
         dispatch(getTravelList());
     }, []);
-
+    
     return (
         <ListContainer>
             <GridContainer>
