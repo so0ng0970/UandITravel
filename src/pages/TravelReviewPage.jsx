@@ -8,6 +8,16 @@ import { nanoid } from "@reduxjs/toolkit";
 import { getReview,postReview ,deleteReview,updateReview} from "../redux/module/TravelReviewSlice";
 import useInput from "../../src/components/hooks/useInput";
 import axios from "axios";
+import { getCookie } from "../../src/cookie";
+
+
+const access_token = getCookie("access_token");
+axios.defaults.headers.common["authorization"] = access_token;
+
+const refresh_token = getCookie("refresh_token");
+axios.defaults.headers.common["authorization"] = refresh_token;
+
+
 const TravelReviewPage = () => {
 
     const dispatch = useDispatch();
@@ -38,7 +48,7 @@ const TravelReviewPage = () => {
     });
  const makeInput = async (review, id) => {
         await axios
-            .put(`/api/auth/review/{review${id}}`, {
+            .put(`http://43.201.36.176/api/auth/review/{review${id}}`, {
                 ...review,
                 input: 1,
             })
@@ -47,14 +57,14 @@ const TravelReviewPage = () => {
   //수정업데이트  
     const onClickUpdate = async (id, updated) => {
         await axios
-            .put(`/api/auth/review/${id}`, updated)
+            .put(`http://43.201.36.176/api/auth/review/${id}`, updated)
          .then(dispatch(getReview()))               //추가시 반응이 느리고 가끔 안먹힐때 있음 
             .catch((error) => console.log(error));
     };
     //삭제
     const onClickDelete = async (id) => {
         await axios
-            .delete(`/api/auth/review/${id}`)
+            .delete(`http://43.201.36.176/api/auth/review/${id}`)
             .then(dispatch(getReview()))              //추가시 반응이 느리고 가끔 안먹힐때 있음 
             .catch((error) => console.log(error));
     };

@@ -1,5 +1,6 @@
-import axios from "axios";
+import { instance } from "../../api/Api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getCookie } from "../../cookie";
 
 const initialState = {
     posts: [],
@@ -7,13 +8,19 @@ const initialState = {
     error: null,
 };
 
+
+
+
+
 // db에 데이터를 넣음
 export const __addTravelCard = createAsyncThunk(
-    "music/ADD_TRAVELCARD",
+    "travel/__addTravelCard",
     async (payload, thunkAPI) => {
         try {
-            const data = await axios.post("/api/auth/post", payload);
-            console.log(data.data);
+            const data = await instance.post(
+                "/api/auth/post",payload
+            );
+            console.log("d",data.data);
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -25,12 +32,14 @@ export const __addTravelCard = createAsyncThunk(
 export const getTravelList = createAsyncThunk(
     "travel/getTravelList ",
     async (payload, thunkAPI) => {
+        console.log(getTravelList)
         try {
-            const data = await axios.get("/api/post");
+            const data = await instance.get("/api/post");
             console.log(data.data);
             return thunkAPI.fulfillWithValue(data.data);
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
+            
         }
     }
 );
@@ -40,7 +49,9 @@ export const __deleteTravelCard = createAsyncThunk(
     "travel/DELETE_TRAVELCARD",
     async (payload, thunkAPI) => {
         try {
-            const data = await axios.delete(`/api/auth/post/${payload}`);
+            const data = await instance.delete(
+                `/api/auth/post/${payload}`
+            );
             return thunkAPI.fulfillWithValue(payload);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -53,8 +64,9 @@ export const __updateTravelCard = createAsyncThunk(
     "travel/UPDATE_MUSIC",
     async (payload, thunkAPI) => {
         try {
-            const data = await axios.put(
+            const data = await instance.put(
                 `/api/auth/post/${payload.id}`,
+
                 payload
             );
             return thunkAPI.fulfillWithValue(data.data);
@@ -90,8 +102,9 @@ const cardpost = createSlice({
         },
         [getTravelList.fulfilled]: (state, action) => {
             state.success = false;
-            state.posts = action.payload;
-            console.log(state);
+            state.posts = action.payload.data;
+            // console.log(action.payload);
+            // console.log(action.payload.data);
         },
         [getTravelList.rejected]: (state, action) => {
             state.success = false; // 에러가 발생했지만, 네트워크 요청이 끝났으니, false로 변경합니다.

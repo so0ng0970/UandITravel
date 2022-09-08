@@ -3,19 +3,19 @@ import { Card } from 'react-bootstrap';
 import styled from "styled-components";
 import axios from 'axios'; 
 import { nanoid } from "@reduxjs/toolkit";
-
+import { Link } from "react-router-dom";
 
 const Sign= () => {
- const[nickName, setNickName] = useState("");  // 사용자 아이디
+ const[nickname, setNickName] = useState("");  // 사용자 아이디
  const[writer, setWriter] = useState("");  // 사용자 닉네임 
- const[passWord, setPassWord] = useState(""); //비밀번호
- const[passWordConfirm, setpassWordConfirm] = useState(""); //비밀번호 확인
+ const[password, setPassWord] = useState(""); //비밀번호
+ const[passwordConfirm, setpassWordConfirm] = useState(""); //비밀번호 확인
  const[mbti, setMbti] = useState(""); 
  const [passwordError, setPasswordError] = useState("")
 
  function onChangePassWord(event){
   setPassWord(event.target.value)
-  if (event.target.value === passWordConfirm){
+  if (event.target.value === passwordConfirm){
       setPasswordError("")
   }
 }
@@ -29,7 +29,7 @@ const Sign= () => {
 
 function onChangepassWordConfirm(event){
   setpassWordConfirm(event.target.value)
-  if (event.target.value === passWord){
+  if (event.target.value === password){
       setPasswordError("")
   }
 }
@@ -41,13 +41,13 @@ const account = () => {
   // Request API.
   // Add your own code here to customize or restrict how the public can register new users.
   axios
-    .post("/sign", {
-      nickName: nickName,
+    .post("http://43.201.36.176/api/member/signup", {
+      nickname: nickname,
       writer: writer,
       mbti: mbti,
-      password: passWord,
-      passWordConfirm: passWordConfirm,
-      id:nanoid ()
+      password: password,
+      passwordConfirm: passwordConfirm,
+      // id:nanoid ()
       // passWordConfirm: passWordConfirm,
     }) 
     .then(response => {  //동시에 일어나는 걸 막기위해 then 이라는 함수가 사용된다
@@ -64,10 +64,10 @@ const account = () => {
       // Handle error.
       console.log('An error occurred:', error.response);
     });
-    if(passWord.length < 4){
+    if(password.length < 4){
       setPasswordError("4글자 이상으로 입력해주세요!")
   }
-    if(passWord !== passWordConfirm){
+    if(password !== passwordConfirm){
       setPasswordError("비밀번호가 다릅니다")
     }
   
@@ -92,7 +92,7 @@ const account = () => {
         <Input1   className='input1' style={{marginTop:'250px'}}>
         <label className="label"></label>
         <input className="input" type="email" placeholder="🙂ID"
-        value={nickName} onChange={(e) =>{setNickName(e.target.value)
+        value={nickname} onChange={(e) =>{setNickName(e.target.value)
          console.log(e.target.value);
         }}
        
@@ -115,22 +115,24 @@ const account = () => {
       <br/>
 
       <input className="input" type="password" placeholder="🔒Password"
-       value={passWord} onChange={ onChangePassWord}
+       value={password} onChange={ onChangePassWord}
      
       >
      </input>
       <br/>
       <br/>
       <input className="input" type="password" placeholder="🔒Password check"
-       value={passWordConfirm} onChange={onChangepassWordConfirm}
+       value={passwordConfirm} onChange={onChangepassWordConfirm}
       >
    </input>  <Error>{passwordError}</Error>
      <br/>
       <br/>
+      <Link to={`/login`}>
       <button className="button is-medium is-fullwidth" 
         onClick={()=>
         account()}
       >ᴀᴄᴄᴏᴜɴᴛ</button>
+     </Link>
   
        </Input1 >
    

@@ -8,8 +8,7 @@ import axios from "axios";
 const TravelCard = ({ posts }) => {
     const { title, departureDate, arrivalDate, city, id, content, personnel } =
         posts;
-    console.log(title, departureDate, arrivalDate, city, id);
- 
+
     const data = {
         id: id,
         title: title,
@@ -20,13 +19,8 @@ const TravelCard = ({ posts }) => {
         city: city,
     };
 
-    // const dispatch = useDispatch();
-    // const {posts} = useSelector ((state) =>state.posts)
-    // console.log('하이',posts)
+   
 
-    // useEffect(() => {
-    //     dispatch(getTravelList());
-    //   }, []);
 
     return (
         <div>

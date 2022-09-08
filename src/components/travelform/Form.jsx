@@ -88,7 +88,6 @@ const Form = () => {
             id: nanoid(),
             title,
             personnel,
-
             departureDate,
             arrivalDate,
             content,

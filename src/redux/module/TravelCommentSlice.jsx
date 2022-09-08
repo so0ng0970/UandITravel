@@ -1,5 +1,12 @@
 import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getCookie } from "../../cookie";
+
+const access_token = getCookie("access_token");
+axios.defaults.headers.common["authorization"] = access_token;
+
+const refresh_token = getCookie("refresh_token");
+axios.defaults.headers.common["authorization"] = refresh_token;
 
 const initialState = {
   Comment: [],
@@ -12,7 +19,7 @@ export const getComment = createAsyncThunk(
   "comment/getComment",
  async (payload, thunkAPI) => {
  try{
-  const data = await axios.get(`/api/comment/${payload}`);
+  const data = await axios.get(`http://43.201.36.176/api/comment/${payload}`);
   
   return thunkAPI.fulfillWithValue(data.data);
   }catch (error) {

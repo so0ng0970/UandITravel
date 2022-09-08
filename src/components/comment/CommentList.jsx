@@ -4,12 +4,21 @@ import { getComment } from "../../redux/module/TravelCommentSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
+import { getCookie } from "../../cookie";
+
+
+const access_token = getCookie("access_token");
+axios.defaults.headers.common["authorization"] = access_token;
+
+const refresh_token = getCookie("refresh_token");
+axios.defaults.headers.common["authorization"] = refresh_token;
+
 
 const CommentList = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { comment } = useSelector((state) => state.comment);
-    // console.log("하이", comment);
+
 
     const [comments, setComments] = useState(null);
 
@@ -22,7 +31,7 @@ const CommentList = () => {
     //삭제
     const onClickDelete = async (id) => {
         await axios
-            .delete(` /api/comment/${id}`)
+            .delete(` http://43.201.36.176/api/comment/${id}`)
             .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };
@@ -30,7 +39,7 @@ const CommentList = () => {
     //  수정
     const makeInput = async (comment, id) => {
         await axios
-            .put(` /api/auth/comment/${id}`, {
+            .put(` http://43.201.36.176/api/auth/comment/${id}`, {
                 ...comment,
                 input: 1,
             })
@@ -39,7 +48,7 @@ const CommentList = () => {
 
     const onClickUpdate = async (id, updated) => {
         await axios
-            .put(` /api/auth/comment/${id}`, updated)
+            .put(` http://43.201.36.176/api/auth/comment/${id}`, updated)
             .then(dispatch(getComment())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };

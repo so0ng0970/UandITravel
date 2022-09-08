@@ -5,6 +5,17 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
+import { getCookie } from "../../cookie";
+
+
+
+
+const access_token = getCookie("access_token");
+axios.defaults.headers.common["authorization"] = access_token;
+
+const refresh_token = getCookie("refresh_token");
+axios.defaults.headers.common["authorization"] = refresh_token;
+
 
 function CommentForm() {
     const { id } = useParams();
@@ -14,8 +25,8 @@ function CommentForm() {
         postId: "",
     });
     const [comments, setComments] = useState(null);
-    const fetchComments = async () => {
-        const { data } = await axios.get("/comment");
+    const fetchComments = async (id) => {
+        const { data } = await axios.get(` http://43.201.36.176/api/comment/${id}`);
         setComments(data);
         
     };
@@ -23,7 +34,7 @@ function CommentForm() {
     //POST
 
     const onSubmitHandler = (comment) => {
-        axios.post("/api/auth/comment", comment);
+        axios.post("http://43.201.36.176/api/auth/comment", comment);
     };
 
     useEffect(() => {
