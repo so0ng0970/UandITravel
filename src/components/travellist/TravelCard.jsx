@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import "bulma/css/bulma.min.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useSelector } from "react-redux";
 
 const TravelCard = ({ posts }) => {
     const {
@@ -14,19 +14,8 @@ const TravelCard = ({ posts }) => {
         content,
         personnel,
     } = posts;
-    // console.log(posts);
 
-    const fetchDetail = async (postId) => {
-        await axios
-            .get(`http://43.201.36.176/api/post/${postId}`)
-            .then((res) => {
-                console.log(res);
-            });
-    };
-
-    useEffect(() => {
-        fetchDetail(postId);
-    }, []);
+    //    console.log("하이", posts[2].member.writer);
 
     return (
         <div>
@@ -40,13 +29,15 @@ const TravelCard = ({ posts }) => {
                     <div class="media-content">
                         <div class="content">
                             <div>
-                                <strong>John Smith</strong>
+                                <strong>{posts.member.writer}</strong>
                                 <small>@johnsmith</small> <small>31m</small>
                                 <div>
                                     <div key={posts.id}>
                                         <CardTiltle>{title}</CardTiltle>
 
-                                        <CardContent>MBTI : ISFP</CardContent>
+                                        <CardContent>
+                                            {} : {posts.member.mbti}
+                                        </CardContent>
 
                                         <CardContent>
                                             {city},{personnel}명
