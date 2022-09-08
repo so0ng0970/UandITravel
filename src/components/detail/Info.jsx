@@ -74,7 +74,7 @@ function Info({
                     <div>
                         여행날짜 : {departureDate} ~ {arrivalDate}
                     </div>
-                    <div>MBTI : {data.mbti}</div>
+                    <div>MBTI : </div>
                     <div>내용 : {content}</div>
                     <div>
                         참여 모임 인원수: {joinCount}/{personnel}
