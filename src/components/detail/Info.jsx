@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { __deleteTravelCard } from "../../redux/module/TravelFormSlice";
 import axios from "axios";
 
@@ -15,6 +15,9 @@ function Info({
     city,
     imageUrl,
 }) {
+    const post = useSelector((state) => state.post);
+    console.log(post);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [imgUrl, setImgUrl] = useState("");
@@ -36,7 +39,7 @@ function Info({
             alert("참여인원이 마감되었습니다.");
         }
         setToggle(!toggle);
-        // axios.post("/posts", { postId: id });
+        axios.post("/posts", { postId });
     };
 
     const cencelHandler = (e) => {
@@ -48,7 +51,7 @@ function Info({
         // axios.post("/posts", { postId: id });
     };
 
-    axios.get(`/api/auth/participation/${postId}`);
+    // axios.get(`/api/auth/participation/${postId}`);
     return (
         <div>
             <InfoBtnContainer>

@@ -28,6 +28,10 @@ function CommentForm() {
         axios.post("http://43.201.36.176/api/auth/comment", comment);
     };
 
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
     return (
         <form
             onSubmit={(e) => {

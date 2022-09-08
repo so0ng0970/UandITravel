@@ -7,12 +7,14 @@ import React, { useEffect } from "react";
 const List = () => {
     const dispatch = useDispatch();
     const { posts } = useSelector((state) => state.posts);
-    console.log("하이", posts);
+
+    console.log("하이", posts[2]);
 
     useEffect(() => {
         dispatch(getTravelList());
     }, []);
-    console.log(typeof posts);
+
+    // console.log(typeof posts);
 
     return (
         <ListContainer>

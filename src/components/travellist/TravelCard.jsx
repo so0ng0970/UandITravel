@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import "bulma/css/bulma.min.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const TravelCard = ({ posts }) => {
     const {
@@ -13,6 +14,19 @@ const TravelCard = ({ posts }) => {
         content,
         personnel,
     } = posts;
+    // console.log(posts);
+
+    const fetchDetail = async (postId) => {
+        await axios
+            .get(`http://43.201.36.176/api/post/${postId}`)
+            .then((res) => {
+                console.log(res);
+            });
+    };
+
+    useEffect(() => {
+        fetchDetail(postId);
+    }, []);
 
     return (
         <div>
