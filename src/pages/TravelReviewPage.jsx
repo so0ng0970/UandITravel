@@ -52,6 +52,7 @@ const TravelReviewPage = () => {
         await axios
             .put(`http://43.201.36.176/api/auth/review/${id}`, updated)
             .then(dispatch(getReview())) //추가시 반응이 느리고 가끔 안먹힐때 있음
+            .then(dispatch(getReview())) //추가시 반응이 느리고 가끔 안먹힐때 있음
             .catch((error) => console.log(error));
     };
     //삭제
