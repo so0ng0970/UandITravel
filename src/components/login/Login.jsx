@@ -32,7 +32,6 @@ const Login = () => {
                 setCookie("Access_token", access_token.split(" ")[1]);
                 setCookie("Refresh_token", refresh_token);
                 console.log("Well done!");
-
                 navigate("/");
             })
             .catch((error) => {
