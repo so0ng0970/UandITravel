@@ -7,15 +7,18 @@ import store from "./redux/config/ConfigStore";
 import { Provider } from "react-redux";
 import "bulma/css/bulma.min.css";
 import axios from "axios";
+import { CookiesProvider } from "react-cookie";
 
-axios.defaults.baseURL = "http://43.201.36.176";
+// axios.defaults.baseURL = "http://43.201.36.176";
 // axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <Provider store={store}>
-        <App />
-    </Provider>
+    <CookiesProvider>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

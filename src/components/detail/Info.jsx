@@ -4,14 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { __deleteTravelCard } from "../../redux/module/TravelFormSlice";
 import axios from "axios";
+
 function Info({
-    id,
+    postId,
     title,
     personnel,
     departureDate,
     arrivalDate,
     content,
     city,
+    imageUrl,
 }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -21,7 +23,7 @@ function Info({
 
     const cardDeleteHandler = (e) => {
         e.preventDefault();
-        dispatch(__deleteTravelCard(id));
+        dispatch(__deleteTravelCard(postId));
         navigate(-1);
     };
 
@@ -34,7 +36,7 @@ function Info({
             alert("참여인원이 마감되었습니다.");
         }
         setToggle(!toggle);
-        // axios.post("http://localhost:3001/posts", { postId: id });
+        // axios.post("/posts", { postId: id });
     };
 
     const cencelHandler = (e) => {
@@ -43,17 +45,17 @@ function Info({
             setJoinCount(parseInt(joinCount) - 1);
         }
         setToggle(!toggle);
-        // axios.post("http://localhost:3001/posts", { postId: id });
+        // axios.post("/posts", { postId: id });
     };
 
-    axios.get(`/api/auth/participation/${id}`);
+    axios.get(`/api/auth/participation/${postId}`);
     return (
         <div>
             <InfoBtnContainer>
-                <Link to={`/review/${id}`}>
+                <Link to={`/review/${postId}`}>
                     <DetailPageBtn>여행후기</DetailPageBtn>
                 </Link>
-                <Link to={`/edit/${id}`}>
+                <Link to={`/edit/${postId}`}>
                     <DetailPageBtn>수정</DetailPageBtn>
                 </Link>
                 <DetailPageBtn onClick={cardDeleteHandler}>삭제</DetailPageBtn>
